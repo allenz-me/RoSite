@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://allenz-me.github.io/RoSite/sitemap.xml
