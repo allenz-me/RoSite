@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>鲁棒性优化（Robustness Optimization） - 鲁棒优化电子书 —— 运筹OR帷幄</title>
+  <title>第一章 鲁棒优化简介 - 鲁棒优化电子书 —— 运筹OR帷幄</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="运筹OR帷幄" />
-  <meta name="description" content="陈植 目标驱动最优化和Satisficing（Goal-Driven Optimization and Satisficing） 鲁棒性优化（Robustness Optimiz" />
+  <meta name="description" content="根据维基百科，鲁棒优化（robust optimization）是最优化理论中的一类用来寻求在不确定（uncertain)环境中使优化问题具有" />
 
   <meta name="keywords" content="Hugo, theme, jane" />
 
@@ -35,7 +35,7 @@
 <meta name="generator" content="Hugo 0.89.4" />
 
 
-<link rel="canonical" href="https://allenz-me.github.io/RoSite/post/6.%E9%B2%81%E6%A3%92%E4%BC%98%E5%8C%96%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7%E4%BC%98%E5%8C%96/" />
+<link rel="canonical" href="https://allenz-me.github.io/RoSite/post/ch1/" />
 
 
 
@@ -59,20 +59,20 @@
 
 
 
-<meta property="og:title" content="鲁棒性优化（Robustness Optimization）" />
-<meta property="og:description" content="陈植 目标驱动最优化和Satisficing（Goal-Driven Optimization and Satisficing） 鲁棒性优化（Robustness Optimiz" />
+<meta property="og:title" content="第一章 鲁棒优化简介" />
+<meta property="og:description" content="根据维基百科，鲁棒优化（robust optimization）是最优化理论中的一类用来寻求在不确定（uncertain)环境中使优化问题具有" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://allenz-me.github.io/RoSite/post/6.%E9%B2%81%E6%A3%92%E4%BC%98%E5%8C%96%E4%B8%8E%E9%B2%81%E6%A3%92%E6%80%A7%E4%BC%98%E5%8C%96/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2022-01-04T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-01-04T00:00:00+00:00" />
+<meta property="og:url" content="https://allenz-me.github.io/RoSite/post/ch1/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-01-09T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-07-27T23:39:54+08:00" />
 
-<meta itemprop="name" content="鲁棒性优化（Robustness Optimization）">
-<meta itemprop="description" content="陈植 目标驱动最优化和Satisficing（Goal-Driven Optimization and Satisficing） 鲁棒性优化（Robustness Optimiz"><meta itemprop="datePublished" content="2022-01-04T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-01-04T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1041">
+<meta itemprop="name" content="第一章 鲁棒优化简介">
+<meta itemprop="description" content="根据维基百科，鲁棒优化（robust optimization）是最优化理论中的一类用来寻求在不确定（uncertain)环境中使优化问题具有"><meta itemprop="datePublished" content="2022-01-09T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-07-27T23:39:54+08:00" />
+<meta itemprop="wordCount" content="3474">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="鲁棒性优化（Robustness Optimization）"/>
-<meta name="twitter:description" content="陈植 目标驱动最优化和Satisficing（Goal-Driven Optimization and Satisficing） 鲁棒性优化（Robustness Optimiz"/>
+<meta name="twitter:title" content="第一章 鲁棒优化简介"/>
+<meta name="twitter:description" content="根据维基百科，鲁棒优化（robust optimization）是最优化理论中的一类用来寻求在不确定（uncertain)环境中使优化问题具有"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -292,15 +292,15 @@
           <article class="post bg-white">
     
     <header class="post-header">
-      <h1 class="post-title">鲁棒性优化（Robustness Optimization）</h1>
+      <h1 class="post-title">第一章 鲁棒优化简介</h1>
       
       <div class="post-meta">
-        <time datetime="2022-01-04" class="post-time">
-          2022-01-04
+        <time datetime="2022-01-09" class="post-time">
+          2022-01-09
         </time>
         
-        <span class="more-meta"> 1041 words </span>
-          <span class="more-meta"> 3 min read </span>
+        <span class="more-meta"> 3474 words </span>
+          <span class="more-meta"> 7 min read </span>
 
         
         
@@ -317,8 +317,7 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#目标驱动最优化和satisficinggoal-driven-optimization-and-satisficing">目标驱动最优化和Satisficing（Goal-Driven Optimization and Satisficing）</a></li>
-    <li><a href="#鲁棒性优化robustness-optimization">鲁棒性优化（Robustness Optimization）</a></li>
+    <li><a href="#参考文献">参考文献</a></li>
   </ul>
 </nav>
   </div>
@@ -326,54 +325,99 @@
 
     
     <div class="post-content">
-      <p>陈植</p>
-<h2 id="目标驱动最优化和satisficinggoal-driven-optimization-and-satisficing">目标驱动最优化和Satisficing（Goal-Driven Optimization and Satisficing）</h2>
-<h2 id="鲁棒性优化robustness-optimization">鲁棒性优化（Robustness Optimization）</h2>
-<p>经济学和心理学中常用Satisficing理论来研究决策者在不确定环境下的决策过程。在Satisficing理论的假设中，决策者依据能够同时满足全部约束的可能性大小来对各决策进行排序，并选取其中最有可能同时满足全部约束的为最优决策。基于Satisficing理论，<a href="http://www.optimization-online.org/DB_HTML/2016/01/5310.html">Jaillet et al., 2016</a>提出如下模型
+      <p>根据维基百科，鲁棒优化（robust optimization）是最优化理论中的一类用来寻求在不确定（uncertain)环境中使优化问题具有一定程度的鲁棒性（robustness）的方法。其中，不确定性可以通过问题的参数或者解的确定性变异（deterministic variability）来刻画(Wikipedia, 2019)。也就是说鲁棒优化是用来寻求对不确定性免疫的解的一类方法 (Bertsimas and Sim, 2004)。</p>
+<p>在传统的优化模型中，通常假设模型的输入数据是具体的、准确的数值。然而，现实生活中所获得的大部分数据都是具有一定的误差。而有时细微的误差也将导致优化问题的最优解不再最优(suboptimal)或者导致原问题不具有可行解（infeasible）。以<a href="http://www.netlib.org/">NETLIB</a>中题PILOT4为例，其某一约束为：
+$$
+\begin{aligned}
+&amp; \boldsymbol{a}^{\top} \boldsymbol x \equiv-15.79081 x_{826}-8.598819 x_{827}-1.88789 x_{828}-1.362417 x_{829}-1.526049 x_{830}\\
+&amp;-0.031883 x_{849}-28.725555 x_{850}-10.792065 x_{851}-0.19004 x_{852}-2.757176 x_{853}\\
+&amp;-12.290832 x_{854}+717.562256 x_{855}-0.057865 x_{856}-3.785417 x_{857}-78.30661 x_{858} \\
+&amp;-122.163055 x_{859}-6.46609 x_{860}-0.48371 x_{861}-0.615264 x_{862}-1.353783 x_{863}\\
+&amp;-84.644257 x_{864}-122.459045 x_{865}-43.15593 x_{866}-1.712592 x_{870}-0.401597 x_{871} \\ &amp;+x_{880}-0.946049 x_{898}-0.946049 x_{916} \geq b \equiv 23.387405.\end{aligned}
+$$</p>
+<p>用Cplex解得这个问题的解为：
+$$
+\begin{array}{lll}
+{x_{826}^{\ast}=255.6112787181108} &amp; {x_{827}^{\ast}=6240.488912232100} &amp; {x_{828}^{\ast}=3624.613324098961} \\ {x_{829}^{\ast}=18.20205065283259} &amp; {x_{849}^{\ast}=174397.0389573037} &amp; {x_{870}^{\ast}=14250.00176680900} \\
+{x_{871}^{\ast}=25910.00731692178} &amp;  {x_{880}^{\ast}=104958.3199274139}. &amp;
+\end{array}
+$$</p>
+<p>解$\boldsymbol x^\ast$​​满足$\boldsymbol a^{\top} \boldsymbol x^\ast = b$​​。然而，只要稍微改动$\boldsymbol a$​​中某一项的系数，那么$\boldsymbol a^{\top} \boldsymbol x^\ast \neq b$​​，也即$\boldsymbol x^\ast$​​不再是最优解。</p>
+<p>如何解决这个问题？最直观的方法是，假设每一个系数都在一定范围内变动，从而求一个解使得对所有在这个范围内变动的系数都是最优的。比如，对于约束
+$$
+ax \leq b,
+$$
+我们希望它对所有$a \in [\underline{a}, \bar{a}]$​​​都成立，也即原有约束将变成
+$$
+ax \leq b\quad \forall a \in [\underline{a}, \bar{a}].
+$$
+这个问题的一般形式首先由Soyster在1973年研究(Soyster, 1973)：对于任意线性规划问题,
 $$
 \begin{align*}
-\begin{array}{cll}
-\max &amp; \rho(\pmb{\alpha}) \\\
-{\rm s.t.} &amp; \pmb{A}(\pmb{z})\pmb{x} \geq \pmb{b}(\pmb{z}) &amp;\forall \pmb{z} \in \mathcal{U}(\pmb{\alpha}) \\\
-&amp; \pmb{x} \in \mathcal{X} \\\
-&amp; \pmb{\alpha} \in \mathcal{S}.
-\end{array}
+\max \; &amp; \boldsymbol{c}^{\top} \boldsymbol{x} \\
+\mathbf{s.t. } \; &amp; \displaystyle  \boldsymbol A \boldsymbol x \leq \boldsymbol{b}, \tag{1.1}\\
+&amp; \boldsymbol{x} \geq \boldsymbol 0.
 \end{align*}
 $$</p>
-<p>一般地，对参数化不确定集合$\mathcal{U}(\pmb{\alpha})$, 可行决策$\pmb{x} \in \mathcal{X}$需要满足鲁棒约束
+<p>假设系数矩阵$\boldsymbol A$​中每一列都在一个凸集（convex set）中（也称为列不确定性），也即，$\boldsymbol A_{j} \in \mathcal{U}_{j}$​，那么线性规划问题(1.1)将变成如下问题：
 $$
-\pmb{A}(\pmb{z})\pmb{x} \geq \pmb{b}(\pmb{z})    \forall \pmb{z} \in \mathcal{U}(\pmb{\alpha}).
+\begin{align*}
+\max \; &amp; \boldsymbol{c}^{\top} \boldsymbol{x} \\
+\mathbf {s.t. } \; &amp; \displaystyle \sum_{j \in [N]} \boldsymbol A_{j} x_{j} \leq \boldsymbol{b} \quad \forall \boldsymbol A_{j} \in \mathcal{U}_{j}, j\in [N],  \tag{1.2}\\
+&amp; \boldsymbol{x} \geq \boldsymbol 0.
+\end{align*}
+$$</p>
+<p>然而，此种方法因所得到的解太过于保守（conservative）而饱受诟病。随后，Ben-Tal and Nemirovski (1998, 1999, 2000) 和EI-Ghaoui and Lebret (1997); El Ghaoui et al. (1998)为降低保守性而引进了椭球型不确定集（ellipsoids uncertainty set）。同时也考虑了其他形式的不确定性，比如行不确定性。其中，椭球型不确定集一方面比较难跟现实数据结合，另外一方面，转化（reformulate）之后的模型大都是二阶锥规划（second order cone programming）或者半正定规划（semi-definite programming）问题&mdash;求解起来比较复杂。此外，这种方法依然比较保守。</p>
+<p>2004年，Bertsimas and Sim (2004) 为了克服椭球型不确定集的缺点，引进了预算不确定集（budget uncertainty set），将原问题转化成线性规划问题，并且得出了所得解可行概率的下限，也即所得解对所有约束不可行的概率的上限。</p>
+<p>本书将在第三章介绍不确定性最优化，不同种类的不确定集，以及鲁棒优化理论中很核心的对等式转换理论（robust counterpart）。此书把这种将模型参数假定在给定不确定集中而进行优化问题求解的方法统称为经典鲁棒优化（classical robust optimization）。</p>
+<p>为什么称为经典鲁棒优化？因为经典鲁棒优化构成了现在普遍使用的分布鲁棒优化（distributionally
+robust optimization）的基础，同时也是分布鲁棒优化的一种特殊形式。</p>
+<p>如果在实际中决策者不仅仅已知优化模型某些参数（以下称为随机变量，即random variable）的支撑集（support set），还精确已知这些参数服从某一概率分布，那此类优化问题称为随机优化问题（stochastic
+programming）：
 $$
-参数$\pmb{\alpha}$决定了不确定集合$\mathcal{U}(\pmb{\alpha})$的大小，函数$\rho(\pmb{\alpha})$则反映了决策者对这一参数的喜好程度。</p>
-<p>最简单的，取一维参数$\alpha$，$\mathcal{S} = \mathbb{R}_+$， 和$\rho(\alpha) = \alpha$, 上述模型即变为
+\begin{align*}
+\min\ &amp; \mathbb{E}_{\mathbb{P}} [{g(\boldsymbol x,\tilde{\boldsymbol{\xi}})}]\\
+\mathbf{s.t.}\ &amp;  \mathbb{E}_{\mathbb{P}} [{f_i(\boldsymbol x,\tilde{\boldsymbol{\xi}})}] \leq 0\quad \forall i\in[I]. \tag{1.3}
+\end{align*}
 $$
-\begin{array}{cll}
-\max &amp; \alpha \\\
-{\rm s.t.} &amp; \pmb{A}(\pmb{z})\pmb{x} \geq \pmb{b}(\pmb{z}) &amp; \forall \pmb{z} \in \mathcal{U}(\alpha) \\\
-&amp; \pmb{x} \in \mathcal{X} \\\
-&amp; \alpha \geq 0.
-\end{array}
+一般地，我们假设$g(\cdot)$​​​和$f_i(\cdot)$​​​均为凸函数。</p>
+<p>可是，恰恰是随机变量服从某一概率分布这个假设导致很多问题。一方面，模型中的随机变量在生产经营或者模型背景中通常是多种因素作用的结果，这就导致很难准确估计某一随机变量的边际分布，更别说所有随机变量的集中分布了。另一方面，就算已知边际分布或者集中分布，除了很多时候因为随机变量过多而模型维度过大之外，在多阶段问题中，还常常受制于&quot;维度诅咒（curse of dimentionality)&quot;。现今科技发展，各行各业所收集和掌握的数据量呈井喷态势，使得从大量数据中提取一些随机变量的统计信息（比如需求的均值和方差）变得可行。分布鲁棒优化恰好提供了将这些统计信息融入到模型决策中的一种思路。</p>
+<p>具体来说，如果我们将所需要用到的概率统计信息集成到一个集合中，假设为$\mathcal{F}$​，那么$\mathcal{F}$​就是所有拥有这些统计信息的分布的一个集合。我们称这个集合为模糊集（ambiguity set）。在模糊集中，选取一个分布使得在最坏情况下，进行模型求解。这样所求得的解就具有一定的鲁棒性。也即，模型(1.3)将变成：
 $$
-<a href="http://www.optimization-online.org/DB_HTML/2016/01/5310.html">Jaillet et al., 2016</a>称之为鲁棒性优化（Robustness Optimization）模型。</p>
-<p>从Satisficing理论出发，鲁棒性优化模型为一般鲁棒优化模型
+\begin{align*}
+\min\ &amp; \displaystyle\sup_{\mathbb{P} \in \mathcal{F}}~\mathbb{E}_{\mathbb{P}} [{g(\boldsymbol x,\tilde{\boldsymbol{\xi}})}]\\
+\mathbf{s.t.}\ &amp; \displaystyle \sup_{\mathbb{P} \in \mathcal{F}}~\mathbb{E}_{\mathbb{P}} [{f_i(\boldsymbol x,\tilde{\boldsymbol{\xi}})}] \leq 0\quad \forall i\in[I].
+\end{align*}
 $$
-\begin{array}{cll}
-\max &amp; \pmb{c}'\pmb{x} \\\
-{\rm s.t.} &amp; \pmb{A}(\pmb{z})\pmb{x} \geq \pmb{b}(\pmb{z}) &amp; \forall \pmb{z} \in \mathcal{U}(\Gamma) \\\
-&amp; \pmb{x} \in \mathcal{X}
-\end{array}
+我们称模型(1.4)为分布鲁棒优化模型。其中，如果$\mathcal{F} = \{\mathbb{P}\}$，那分布鲁棒模型就是随机优化模型。如果，在$\mathcal{F}$中，我们只知道随机量$\tilde{\boldsymbol{\xi}}$在某一个集合$\mathcal{U}$中，那分布鲁棒模型退化成经典鲁棒模型。本书将在第四章着重介绍不同的模糊集和分布式鲁棒模型的求解方法。</p>
+<p>以上所阐述的经典鲁棒优化模型和分布鲁棒优化模型只适用于单阶段（single stage）问题。而现实中所面临的决策往往是多阶段（multi-stage）的。其中，最经典的莫过于两阶段随机规划模型：
 $$
-提供了新的解释。一般鲁棒优化模型需要决策者声明自己对不确定性的偏好，即声明不确定集合$\mathcal{U}(\Gamma)$的大小。不确定集合$\mathcal{U}(\Gamma)$的大小通常由参数$\Gamma$直接调控。例如，<a href="https://pubsonline.informs.org/doi/abs/10.1287/opre.1030.0065?journalCode=opre">Bertsimas and Sim 2004</a>提出的鲁棒价格$\Gamma$调控了不确定参数中有多少成分能够同时取到最坏情况。对于一些决策者而言，这并不是一件容易的事，因为他们对自己的偏好并没有清楚的认识；相反，声明自身可接受的成本（亦即$\pmb{c}'\pmb{x}$）也许更容易。对这样的决策者而言，求解如下鲁棒性优化模型或许更为直观
+\begin{align*}
+\min\ &amp; \boldsymbol c^{\top} \boldsymbol x + \mathbb{E}_{\mathbb{P}} [{g(\boldsymbol x,\tilde{\boldsymbol{\xi}})}]  \tag{1.5}\\
+\mathbf{s.t.}\ &amp;  \boldsymbol{Ax} = \boldsymbol b,\\
+&amp; \boldsymbol x \geq \boldsymbol{0},
+\end{align*}
 $$
-\begin{array}{cll}
-\max &amp; \alpha \\\
-{\rm s.t.} &amp; \pmb{A}(\pmb{z})\pmb{x} \geq \pmb{b}(\pmb{z}) &amp; \forall \pmb{z} \in \mathcal{U}(\alpha) \\\
-&amp; \pmb{x} \in \mathcal{X} \\\
-&amp; \pmb{c}^\top \pmb{x} \leq B \\\
-&amp; \alpha \geq 0.
-\end{array}
+其中
 $$
-在可控成本范围内（$\pmb{c}'\pmb{x} \leq B$），在更大的不确定集合影响下依然能满足不确定性约束的决策则更优。这样的决策标准，正好可以在Satisficing理论的框架下进行解释。</p>
+\begin{align*} \tag{1.6}
+g(\boldsymbol x,\boldsymbol \xi) = \min\ &amp; \boldsymbol q^{\top}\boldsymbol{y}\\
+\mathbf{s.t.}\ &amp;  \boldsymbol{T}\boldsymbol x + \boldsymbol{W}\boldsymbol y = \boldsymbol h,\\
+&amp; \boldsymbol y \geq \boldsymbol{0}.
+\end{align*}
+$$</p>
+<p>$\boldsymbol \xi \triangleq (\boldsymbol q, \boldsymbol h, \boldsymbol T, \boldsymbol W)$​​​​为第二阶段的输入数据。也即第二阶段的决策不仅依赖于第一阶段决策变量还依赖于随机变量的实现值（realization）。这就导致各阶段之间决策变量和随机变量之间的交互使得问题的复杂度随着阶段的增加而呈指数增长，也即&quot;维度诅咒&quot;。在随机规划中，学者们通过引入决策规则（decision rule）去近似地解决这一问题。但是，因为近似模型表现不好而被&quot;打入冷宫&quot;。而鲁棒优化的出现，让决策规则重新焕发出了勃勃生机。本书将在第五章详细介绍多阶段随机规划问题以及如何使用不同的决策规则和鲁棒优化的方法对其进行近似，并且取得很好的近似效果。</p>
+<p>近年来，随着鲁棒优化在各种不同优化问题求解中的良好表现，其价值越来越被学界和业界所发现。比如，从鲁棒优化的角度去处理具有广泛运用的机会约束问题，可以收到比较好的效果。而最新的研究显示，被广泛运用在机器学习中回归模型（regression）的正则性（regularization）和鲁棒优化在一定条件下具有等价关系。这一发现启发了越来越多的学者将鲁棒优化和机器学习相结合。本书将在第六章讲解鲁棒优化下的机会约束问题演化而出的鲁棒性优化问题，在第七章讲解鲁棒优化和机器学习结合的一些最新研究成果。</p>
+<p>同时，在本书的最后一章，我们将介绍鲁棒模型在不同求解平台上的实现方式。也将在不同的章节中引入不同的案例或算例。</p>
+<h2 id="参考文献">参考文献</h2>
+<p><strong>Ben-Tal, Aharon and Arkadi Nemirovski</strong>, “Robust convex optimization,” Mathematics of Operations Research, 1998, 23 (4), 769–805.</p>
+<p><strong>__ and_ _</strong> , “Robust solutions of uncertain linear programs,” Operations Research Letters, 1999, 25 (1), 1–13.</p>
+<p><strong>_ and_</strong> , “Robust solutions of linear programming problems contaminated with uncertain data,” Mathematical Programming, 2000, 88 (3), 411–424.</p>
+<p><strong>Bertsimas, Dimitris and Melvyn Sim</strong>, “The price of robustness,” Operations Research, 2004, 52 (1), 35–53.</p>
+<p><strong>EI-Ghaoui, L and H Lebret</strong>, “Robust solutions to least-square problems to uncertain data matrices,” SIAM Journal on Matrix Analysis and Applications, 1997, 18, 1035–1064.</p>
+<p><strong>Ghaoui, Laurent El, Francois Oustry, and Hervé Lebret</strong>, “Robust solutions to uncertain semidefinite pro- grams,” SIAM Journal on Optimization, 1998, 9 (1), 33–52.</p>
+<p><strong>Soyster, Allen L</strong>, “Technical note—convex programming with set-inclusive constraints and applications to inexact linear programming,” Operations Research, 1973, 21 (5), 1154–1157.</p>
+<p><strong>Wikipedia</strong>, “Robust optimization — Wikipedia, The Free Encyclopedia,” 2019. [Online; accessed 16-April- 2019].</p>
 
     </div>
 
@@ -390,22 +434,9 @@ $$
       
       <nav class="post-nav">
         
-          <a class="prev" href="/RoSite/post/5.%E5%A4%9A%E9%98%B6%E6%AE%B5%E9%97%AE%E9%A2%98%E4%B8%8E%E7%BA%BF%E6%80%A7%E5%86%B3%E7%AD%96%E8%A7%84%E5%88%99/">
-            
-            <i class="iconfont">
-              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
-  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-  width="18" height="18">
-  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
-</svg>
-
-            </i>
-            <span class="prev-text nav-default">多阶段问题与线性决策规则（Multi-stage problem and linear decision rule）</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
         
-          <a class="next" href="/RoSite/post/7.%E9%B2%81%E6%A3%92%E4%BC%98%E5%8C%96%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-            <span class="next-text nav-default">鲁棒优化与机器学习（Machine learning）</span>
+          <a class="next" href="/RoSite/post/ch2/">
+            <span class="next-text nav-default">第二章 鲁棒优化预备知识</span>
             <span class="prev-text nav-mobile">Next</span>
             
             <i class="iconfont">

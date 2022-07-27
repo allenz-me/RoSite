@@ -1,7 +1,7 @@
 
 import re, pathlib
 
-p = pathlib.Path('./content/posts')
+p = pathlib.Path('./content/post')
 
 md = list(p.rglob("*.md"))
 

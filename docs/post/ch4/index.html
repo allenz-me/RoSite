@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>第四章 分布鲁棒优化（模糊集、机会约束问题、分布鲁棒线性优化） - 鲁棒优化电子书 —— 运筹OR帷幄</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="运筹OR帷幄" />
+  <meta name="description" content="现实世界的优化问题指在满足相关约束条件的前提下，确定一组决策变量的值，使预设的目标函数值最优。相关研究成果（理论、模型、算法、应用）在管理科" />
+
+  <meta name="keywords" content="Hugo, theme, jane" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.89.4" />
+
+
+<link rel="canonical" href="https://allenz-me.github.io/RoSite/post/ch4/" />
+
+
+
+
+
+<link rel="icon" href="/RoSite/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/RoSite/sass/jane.min.fa4b2b9f31b5c6d0b683db81157a9226e17b06e61911791ab547242a4a0556f2.css" integrity="sha256-&#43;ksrnzG1xtC2g9uBFXqSJuF7BuYZEXkatUckKkoFVvI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+<meta property="og:title" content="第四章 分布鲁棒优化（模糊集、机会约束问题、分布鲁棒线性优化）" />
+<meta property="og:description" content="现实世界的优化问题指在满足相关约束条件的前提下，确定一组决策变量的值，使预设的目标函数值最优。相关研究成果（理论、模型、算法、应用）在管理科" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://allenz-me.github.io/RoSite/post/ch4/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-01-06T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-07-27T23:39:54+08:00" />
+
+<meta itemprop="name" content="第四章 分布鲁棒优化（模糊集、机会约束问题、分布鲁棒线性优化）">
+<meta itemprop="description" content="现实世界的优化问题指在满足相关约束条件的前提下，确定一组决策变量的值，使预设的目标函数值最优。相关研究成果（理论、模型、算法、应用）在管理科"><meta itemprop="datePublished" content="2022-01-06T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-07-27T23:39:54+08:00" />
+<meta itemprop="wordCount" content="9685">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="第四章 分布鲁棒优化（模糊集、机会约束问题、分布鲁棒线性优化）"/>
+<meta name="twitter:description" content="现实世界的优化问题指在满足相关约束条件的前提下，确定一组决策变量的值，使预设的目标函数值最优。相关研究成果（理论、模型、算法、应用）在管理科"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/RoSite/" class="logo">主页</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://allenz-me.github.io/RoSite/"></a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://allenz-me.github.io/RoSite/post/"></a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://allenz-me.github.io/RoSite/tags/"></a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://allenz-me.github.io/RoSite/categories/"></a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://allenz-me.github.io/RoSite"></a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/RoSite/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/RoSite/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/RoSite/" class="logo">
+    
+      主页
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://allenz-me.github.io/RoSite/"></a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://allenz-me.github.io/RoSite/post/"></a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://allenz-me.github.io/RoSite/tags/"></a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://allenz-me.github.io/RoSite/categories/"></a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://allenz-me.github.io/RoSite"></a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">第四章 分布鲁棒优化（模糊集、机会约束问题、分布鲁棒线性优化）</h1>
+      
+      <div class="post-meta">
+        <time datetime="2022-01-06" class="post-time">
+          2022-01-06
+        </time>
+        
+        <span class="more-meta"> 9685 words </span>
+          <span class="more-meta"> 20 min read </span>
+
+        
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Table of Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#41--模糊集ambiguity-set">4.1  模糊集（Ambiguity set）</a>
+      <ul>
+        <li><a href="#411-基于广义矩信息generalized-moment-information的模糊集">4.1.1 基于广义矩信息（generalized moment information）的模糊集</a></li>
+        <li><a href="#412--基于统计距离-statistical-distance-的模糊集">4.1.2  基于统计距离 (statistical distance) 的模糊集</a></li>
+      </ul>
+    </li>
+    <li><a href="#42-机会约束问题chance-constraint">4.2 机会约束问题（Chance constraint）</a></li>
+    <li><a href="#43-分布鲁棒线性优化distributionally-robust-linear-optimization">4.3 分布鲁棒线性优化（Distributionally robust linear optimization）</a></li>
+    <li><a href="#参考文献">参考文献</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <p>现实世界的优化问题指在满足相关约束条件的前提下，确定一组决策变量的值，使预设的目标函数值最优。相关研究成果（理论、模型、算法、应用）在管理科学、金融工程、军事指挥等领域发挥着巨大指导作用，创造了巨大的社会经济价值。</p>
+<p>由于本书定位为入门级、科普级，本章将以优化问题中一类简单但重要的线性优化（亦称线性规划）问题为例，阐述<strong>分布鲁棒优化</strong>的基本思想、基本模型、基本结论。感兴趣的读者需细读相关文献以获得更深入广泛的理解。</p>
+<p>线性规划问题 (4.1) 中，决策变量为 $\boldsymbol{x} \in \mathbb{R}^I$，环境参数包括费用向量 $\boldsymbol{a}_0 \in \mathbb{R}^I$、约束条件左端项系数向量 $\boldsymbol{a}_m \in \mathbb{R}^I$、右端项系数 $b_m \in \mathbb{R}$，这些参数为确定值。线性规划可用于解决许多现实问题，例如投资组合优化、生产计划、最短路等问题。
+$$
+\begin{equation}
+\label{ro.mod.lo}
+\begin{array}{rll}
+\displaystyle \min_{\boldsymbol{x}} &amp; \boldsymbol{a}_0^\top \boldsymbol{x}, \\
+\mbox{s.t.} &amp; \boldsymbol{a}_m^\top \boldsymbol{x} \le b_m, &amp; m \in [M]. \tag{4.1}
+\end{array}
+\end{equation}
+$$
+现实世界中描述未来发生事件的环境参数在优化/规划/计划阶段往往不确定，例如未来某商品需求量、两地间旅行时长、某股票回报率等。为了让优化结果对现实更具指导意义，在优化模型中考虑环境参数的不确定性至关重要。</p>
+<p>在不确定环境下，(4.1) 中对于某一 $m \in [M]$ 的约束式变成了
+$$
+\begin{equation}
+\label{dro.con.1}
+\boldsymbol{a}(\tilde{\boldsymbol{\varepsilon}})^\top\boldsymbol{x} \le  b(\tilde{\boldsymbol{\varepsilon}}). \tag{4.2}
+\end{equation}
+$$
+其中，为了阐述方便，忽略下标 $m$；随机变量 $\tilde{\boldsymbol{\varepsilon}}$ 表示影响环境参数的随机因素（例如，旅行时长受天气、交通灯时长等随机因素影响），假设 $\boldsymbol{a}(\tilde{\boldsymbol{\varepsilon}})$ 和 $b(\tilde{\boldsymbol{\varepsilon}})$ 皆为 $\tilde{\boldsymbol{\varepsilon}}$ 的仿射函数，即
+$\boldsymbol{a}(\tilde{\boldsymbol{\varepsilon}}) \triangleq \boldsymbol{a}^0 + \sum_{j \in [J]}\boldsymbol{a}^j \tilde{\varepsilon}_j, b(\tilde{\boldsymbol{\varepsilon}}) \triangleq b^0 + \sum_{j \in [J]}b^j \tilde{\varepsilon}_j$，
+则有
+$$
+\begin{equation*}
+\boldsymbol{a}(\tilde{\boldsymbol{\varepsilon}})^\top \boldsymbol{x} - b(\tilde{\boldsymbol{\varepsilon}})
+= \underbrace{(\boldsymbol{a}^{0})^\top\boldsymbol{x} - b^0}_{=y^0(\boldsymbol{x})} + \sum_{j \in [J]}\big(\underbrace{(\boldsymbol{a}^{j})^\top\boldsymbol{x} - b^j}_{=y^j(\boldsymbol{x})}\big)\tilde{\varepsilon}_j = y^0(\boldsymbol{x}) + \boldsymbol{y}(\boldsymbol{x})'\tilde{\boldsymbol{\varepsilon}}.
+\end{equation*}
+$$
+因此，约束式 (4.2) 等价于
+$$
+\begin{equation}
+\label{dro.con.2}
+y^0(\boldsymbol{x}) + \boldsymbol{y}(\boldsymbol{x})^\top\tilde{\boldsymbol{\varepsilon}} \le 0. \tag{4.3}
+\end{equation}
+$$
+不确定环境下的线性规划从技术上主要关注如何处理约束式 (4.3)。因其左端项为随机变量而右端项为实数，故通常意义上无法直接比较大小，“$\le$” 符号用在此处不够严谨。对此，本章主要介绍两种典型处理方式，第4.2节基于<strong>分布鲁棒机会约束规划</strong>思想，介绍如何处理
+$$
+\begin{equation}
+\label{dro.con.cc}
+\mathbb{P} [y^0(\boldsymbol{x}) + \boldsymbol{y}(\boldsymbol{x})^\top\tilde{\boldsymbol{\varepsilon}} \le 0] \ge 1 - \epsilon, \quad \forall \mathbb{P} \in \mathscr{F}, \tag{4.4}
+\end{equation}
+$$
+也就是约束 (4.3) 成立的概率不小于 $1 - \epsilon$，其中阈值 $\epsilon \in [0, 1]$ 典型取值为 1% 或 5%。第4.3节基于<strong>分布鲁棒线性优化</strong>范式，介绍如何处理
+$$
+\begin{equation}
+\label{dro.con.lo}
+\mathbb{E}_{\mathbb{P}} [y^0(\boldsymbol{x}) + \boldsymbol{y}(\boldsymbol{x})^\top\tilde{\boldsymbol{\varepsilon}}] \le 0, \quad \forall \mathbb{P} \in \mathscr{F}, \tag{4.5}
+\end{equation}
+$$</p>
+<p>也就是约束 (4.3) 需在其左端项通过均值来度量的情况下满足。</p>
+<p>事实上，目标函数参数不确定性亦可纳入约束讨论，因为通过引入辅助决策变量 $t \in \mathbb{R}$，(4.1)等价于
+$$
+\begin{array}{rll}
+\displaystyle \min_{t, \boldsymbol{x}} &amp; t, \\
+\mbox{s.t.} &amp; \boldsymbol{a}_0^\top \boldsymbol{x} \le t, \\
+&amp;\boldsymbol{a}_m^\top \boldsymbol{x} \le b_m, &amp; m \in [M].
+\end{array}
+$$
+进而将目标函数中不确定参数 $\boldsymbol{a}_0$ 置于约束中。</p>
+<p>约束式 (4.4) 和 (4.5) 中，随机变量 $\tilde{\boldsymbol{\varepsilon}}$ 服从联合概率分布 $\mathbb{P}$，而 $\mathbb{P}$ 本身也不确定，属于模糊集 $\mathscr{F}$；第4.1节将介绍模糊集相关内容。分布鲁棒优化采取保守策略，令这两个约束条件对模糊集中所有概率分布皆满足，它也是因此得名&mdash;“鲁棒”的内涵是考虑最坏情况，而“分布”表明最坏情况的主体是环境参数的分布函数。望本章内容能抛砖引玉，启发读者研究和处理更复杂的形式，并用于解决实际问题。</p>
+<h2 id="41--模糊集ambiguity-set">4.1  模糊集（Ambiguity set）</h2>
+<p>问题环境中随机参数的分布函数往往难以从现实世界直接获取。鉴于此，分布鲁棒优化方法假设其分布函数并不明确，而是处于一个<strong>模糊集</strong>(ambiguity set) 中。模糊集通过随机变量的不完全分布信息构建而成。特别地，它还需保证相应分布鲁棒优化模型在计算上可处理 (tractable)，也就是现实规模问题可在允许时间范围内求解。</p>
+<p>从数学上说，分布鲁棒优化囊括随机规划(stochastic programming) 和传统鲁棒优化(robust optimization)为特殊形式，因此分布鲁棒优化更具一般性。当环境变量 $\tilde{\boldsymbol{\varepsilon}}$ 的分布函数 $\mathbb{P}_0$ 可获知时，可令模糊集为单元素集 $\mathscr{F}_S \triangleq \{\mathbb{P}_0\}$，则分布鲁棒优化退化为随机规划；当仅知环境变量的不确定集 $\Xi$ 时，可令模糊集为 $\mathscr{F}_R \triangleq \mathscr{P}_0(\Xi)$，即支撑集为 $\Xi$ 的所有概率分布函数之集合，则分布鲁棒优化退化为经典鲁棒优化。</p>
+<p>按照描述分布函数的信息种类划分，目前相关研究主要提出了两类模糊集。</p>
+<h3 id="411-基于广义矩信息generalized-moment-information的模糊集">4.1.1 基于广义矩信息（generalized moment information）的模糊集</h3>
+<p>在统计学中，矩 (moment) 表征随机变量的分布。对于随机变量 $\tilde{\varepsilon}$，其 $n$ 阶矩被定义为 $\mathbb{E}_\mathbb{P}[\tilde{\varepsilon}^n]$，$n \ge 1$。因此，随机变量一阶矩为均值，表征其位置 (location)，二阶矩与方差有关，表征其散度 (dispersion)，三阶矩表征其偏斜度，等等。</p>
+<p>更广义地，还可利用其它形式表征随机变量的位置、散度、偏斜度等特性。例如，绝对离差均值  $\mathbb{E}_{\mathbb{P}}[|\tilde{\varepsilon} - \mu|]$ 可表征 $\tilde{\varepsilon}$ 的散度，其中 $\mu$ 为其均值。再如，半绝对离差均值 $\mathbb{E}_{\mathbb{P}}[(\tilde{\varepsilon} - \mu)^+]$ 和 $\mathbb{E}_{\mathbb{P}}[(\mu - \tilde{\varepsilon})^+]$ 可从某种程度刻画 $\tilde{\varepsilon}$ 的偏斜度，其中 $(x)^+ \triangleq \max\{x, 0\}$。</p>
+<p>早期研究往往假设随机参数的概率分布无法准确获取，但其部分广义矩信息（和支撑集）可获取或估计，于是根据这些信息构建模糊集。例如，通过 $\tilde{\boldsymbol{\varepsilon}}$ 的均值 $\boldsymbol{\mu}$ 和协方差矩阵 $\boldsymbol{\Sigma}$ 构成的模糊集 (Ghaoui et al., 2003; Popescu, 2007; Chen and Sim, 2009)  为
+$$
+\begin{equation}
+\label{eq.dro.as.mv}
+\mathscr{F}_{MV} = \left\{
+\mathbb{P} \in \mathscr{P}_0(\mathbb{R}^J)
+\left|\begin{array}{l}
+\tilde{\boldsymbol{\varepsilon}} \sim \mathbb{P} \\
+\mathbb{E}_\mathbb{P}[\tilde{\boldsymbol{\varepsilon}}] = \boldsymbol{\mu} \\
+\mathbb{E}_\mathbb{P}[(\tilde{\boldsymbol{\varepsilon}} -\boldsymbol{\mu}) (\tilde{\boldsymbol{\varepsilon}} - \boldsymbol{\mu})'] = \boldsymbol{\Sigma} \\ \tag{4.6}
+\end{array}
+\right.
+\right\}.
+\end{equation}
+$$
+如果进一步考虑支撑集 $\Xi$，则模糊集为 $\mathscr{F}_{MVS} = \mathscr{F}_{MV} \cap \mathscr{P}_0(\Xi)$. 但研究表明，基于 $\mathscr{F}_{MVS}$ 的分布鲁棒优化模型一般不可处理 (Bertsimas and Popescu, 2005; Natarajan et al., 2011)。而如果给定的 $\boldsymbol{\Sigma}$ 不是准确协方差而是协方差的上界时，则模糊集为
+$$
+\begin{equation}
+\label{eq.dro.as.moment}
+\mathscr{F}_{M} = \left\{
+\mathbb{P} \in \mathscr{P}_0(\Xi)
+\left|
+\begin{array}{l}
+\tilde{\boldsymbol{\varepsilon}} \sim \mathbb{P} \\
+\mathbb{E}_\mathbb{P}[\tilde{\boldsymbol{\varepsilon}}] = \boldsymbol{\mu} \\
+\mathbb{E}_\mathbb{P}[(\tilde{\boldsymbol{\varepsilon}} -\boldsymbol{\mu}) (\tilde{\boldsymbol{\varepsilon}} - \boldsymbol{\mu})'] \preceq \boldsymbol{\Sigma}
+\end{array} \tag{4.7}
+\right.
+\right\},
+\end{equation}
+$$
+其中 “$\preceq$”为半正定锥空间意义上的小于等于，也就是 $\boldsymbol{X} \preceq \boldsymbol{Y}$ 意味着 $\boldsymbol{Y} - \boldsymbol{X}$ 为半正定矩阵。有趣的是，基于 $\mathscr{F}_{M}$ 的分布鲁棒线性优化模型却可处理(Wiesemann et al., 2014; Hanasusanto et al., 2015)。</p>
+<p>Delage and Ye (2010) 研究了 $\mathscr{F}_{M}$ 的一个变种
+$$
+\begin{equation}
+\label{eq.dro.as.moment.dy}
+\mathscr{F}_{DY} = \left\{
+\mathbb{P} \in \mathscr{P}_0(\Xi)
+\left|
+\begin{array}{l}
+\tilde{\boldsymbol{\varepsilon}} \sim \mathbb{P} \\
+(\mathbb{E}_{\mathbb{P}}[\tilde{\boldsymbol{\varepsilon}}] - \boldsymbol{\mu})^\top \boldsymbol{\Sigma}^{-1} (\mathbb{E}_{\mathbb{P}}[\tilde{\boldsymbol{\varepsilon}}] - \boldsymbol{\mu}) \le \gamma_1 \\
+\mathbb{E}_\mathbb{P}[(\tilde{\boldsymbol{\varepsilon}} -\boldsymbol{\mu}) (\tilde{\boldsymbol{\varepsilon}} - \boldsymbol{\mu})'] \preceq \gamma_2 \boldsymbol{\Sigma}
+\end{array} \tag{4.8}
+\right.
+\right\},
+\end{equation}
+$$
+其中第一个约束指 $\tilde{\boldsymbol{\varepsilon}}$ 的均值处于一个以 $\boldsymbol{\mu}$ 为球心的椭球中，$\gamma_1 \ge 0$ 和 $\gamma_2 \ge 1$ 为两个参数。从数据驱动的视角看，假设 $\tilde{\boldsymbol{\varepsilon}}$ 客观上服从概率分布 $\mathbb{P}_0$，但无法观测该分布，而仅能观测其 $N$ 组样本/历史数据/观测值 $(\hat{\boldsymbol{\varepsilon}}_\omega)_{\omega \in [N]}$，令
+$$
+\boldsymbol{\mu} \triangleq \frac{1}{N}\sum_{\omega \in [N]} \hat{\boldsymbol{\varepsilon}}_\omega, \qquad \boldsymbol{\Sigma} \triangleq \frac{1}{N} \sum_{\omega \in [N]} (\hat{\boldsymbol{\varepsilon}}_\omega - \boldsymbol{\mu}) (\hat{\boldsymbol{\varepsilon}}_\omega - \boldsymbol{\mu})^\top,
+$$
+且 $\gamma_1$ 和 $\gamma_2$ 通过与样本量 $N$ 和参数 $\delta &gt; 0$ 有关的某函数给定时（随着 $N \rightarrow \infty$，有 $\gamma_1 \rightarrow 0$ 和 $\gamma_2 \rightarrow 1$），则 Delage and Ye (2010) 证明了在统计学上 $\mathbb{P}_0 \in \mathscr{F}_{DY}$ 的置信度大于等于 $1 - \delta$。</p>
+<p>并非任意基于广义矩信息（和支撑集）的模糊集都能保证相应分布鲁棒优化模型可处理。Wisemann，Kuhn 和 Sim 提出了一种具有一般性的模糊集表达形式，能囊括 $\mathscr{F}_M$ 和 $\mathscr{F}_{DY}$ 为其特殊形式，能建模许多其它的广义矩信息，如绝对离差、半方差、高阶矩等，且（在一些技术性假设条件下）对于分布鲁棒线性优化在计算上可处理 (Wiesemann et al., 2014; Hanasusanto et al., 2015)。其形式为
+$$
+\begin{equation}
+\label{eq.dro.as.wks}
+\mathscr{F}_{WKS} = \left\{
+\mathbb{P} \in \mathscr{P}_0(\mathbb{R}^J \times \mathbb{R}^L)
+\left|
+\begin{array}{ll}
+(\tilde{\boldsymbol{\varepsilon}}, \tilde{\boldsymbol{u}}) \sim \mathbb{P} \\
+\mathbb{E}_\mathbb{P}[\boldsymbol{A}\tilde{\boldsymbol{\varepsilon}} + \boldsymbol{B} \tilde{\boldsymbol{u}}] = \boldsymbol{b} \\
+\mathbb{P}[(\tilde{\boldsymbol{\varepsilon}}, \tilde{\boldsymbol{u}}) \in \Xi_k] \in [\underline{p}_k, \overline{p}_k], \forall k \in [K]
+\end{array}
+\right.
+\right\},
+\end{equation} \tag{4.9}
+$$
+其中 $\mathbb{P}$ 为 $\tilde{\boldsymbol{\varepsilon}}$ 和辅助随机变量 $\tilde{\boldsymbol{u}}$ 的联合概率分布，$\boldsymbol{A} \in \mathbb{R}^{J \times Q}$，$\boldsymbol{B} \in \mathbb{R}^{L \times Q}$，$\boldsymbol{b} \in \mathbb{R}^Q$；置信集合 $\Xi_k$ 给定为
+$$
+\begin{equation}
+\label{eq.support.set}
+\Xi_k = \{
+(\boldsymbol{\varepsilon}, \boldsymbol{u}) \in \mathbb{R}^J \times \mathbb{R}^L |
+\boldsymbol{C}_k \boldsymbol{\varepsilon} + \boldsymbol{D}_k \boldsymbol{u} \preceq_{\mathscr{K}_k} \boldsymbol{c}_k
+\},
+\end{equation} \tag{4.10}
+$$</p>
+<p>其中 $\boldsymbol{C}_k \in \mathbb{R}^{J \times R}$，$\boldsymbol{D}_k \in \mathbb{R}^{L \times R}$，$\boldsymbol{c} \in \mathbb{R}^R$，而 $\mathscr{K}_k$ 代表某一真锥 (proper cone)，如非负象限、二阶锥、半正定锥等。在此，“$\preceq_{\mathscr{K}_k}$”是在该锥空间意义上的小于等于；关于锥和相应的锥规划 (conic programming) 问题相关介绍，可参见  Ben-Tal and Nemirovski (2001)。对于表示概率界的 $\underline{\boldsymbol{p}},\overline{\boldsymbol{p}} \in [0, 1]^K$，有 $\underline{\boldsymbol{p}} \le \overline{\boldsymbol{p}}$。</p>
+<p>模糊集 $\mathscr{F}_{WKS}$ 巧妙之处在于引入了辅助随机变量 $\tilde{\boldsymbol{u}}$，这为计算上的可处理性提供了一种有效途径，如下例所示。</p>
+<p><strong>示例4.1</strong>：通过 $\tilde{\boldsymbol{\varepsilon}}$ 的均值 $\boldsymbol{\mu}$ 、绝对离差均值上界 $\boldsymbol{\sigma}$、半绝对离差均值上界 $\boldsymbol{h}$ 及满足 (4.10)形式的支撑集 $\Xi$ 构成的模糊集为
+$$
+\begin{equation}
+\label{eq.dro.as.mad}
+\mathscr{F}_{MAD} = \left\{
+\mathbb{P} \in \mathscr{P}_0(\Xi)
+\left|
+\begin{array}{l}
+\tilde{\boldsymbol{\varepsilon}} \sim \mathbb{P} \\
+\mathbb{E}_\mathbb{P}[\tilde{\boldsymbol{\varepsilon}}] = \boldsymbol{\mu} \\
+\mathbb{E}_\mathbb{P}[|\tilde{\boldsymbol{\varepsilon}} -\boldsymbol{\mu}|] \le \boldsymbol{\sigma} \\
+\mathbb{E}_\mathbb{P}[(\tilde{\boldsymbol{\varepsilon}} -\boldsymbol{\mu})^+] \le \boldsymbol{h}
+\end{array}
+\right.
+\right\},
+\end{equation} \tag{4.11}
+$$
+其中 $|\tilde{\boldsymbol{\varepsilon}}|$ 代表对向量 $\tilde{\boldsymbol{\varepsilon}}$ 的每个元素分别取绝对值构成的向量，取正符 $(\tilde{\boldsymbol{\varepsilon}})^+$ 亦然。目前虽无法直接处理基于 $\mathscr{F}_{MAD}$ 的分布鲁棒优化模型，但如引入辅助变量，$\mathscr{F}_{MAD}$ 则变成
+$$
+\begin{equation}
+\label{eq.dro.as.ma}
+\mathscr{F}_{MADL} = \left\{
+\mathbb{P} \in \mathscr{P}_0(\bar{\Xi})
+\left|
+\begin{array}{l}
+(\tilde{\boldsymbol{\varepsilon}}, \tilde{\boldsymbol{u}}, \tilde{\boldsymbol{v}}) \sim \mathbb{P} \\
+\mathbb{E}_\mathbb{P}[\tilde{\boldsymbol{\varepsilon}}] = \boldsymbol{\mu} \\
+\mathbb{E}_\mathbb{P}[\tilde{\boldsymbol{u}}] = \boldsymbol{\sigma} \\
+\mathbb{E}_\mathbb{P}[\tilde{\boldsymbol{v}}] = \boldsymbol{h}
+\end{array}
+\right.
+\right\},
+\end{equation} \tag{4.12}
+$$</p>
+<p>其中，扩展的支撑集为
+$$
+\bar{\Xi} = \{(\boldsymbol{\varepsilon}, \boldsymbol{u}, \boldsymbol{v}) | \boldsymbol{\varepsilon} \in \Xi,  \boldsymbol{u} \ge \boldsymbol{\varepsilon} -\boldsymbol{\mu}, \boldsymbol{u} \ge \boldsymbol{\mu} - \boldsymbol{\varepsilon}, \boldsymbol{v} \ge \boldsymbol{\varepsilon} - \boldsymbol{\mu}, \boldsymbol{v} \ge \boldsymbol{0}\}.
+$$
+在此，$\mathscr{F}_{MADL}$ 即为 $\mathscr{F}_{WKS}$ 的一个特例，因此变得可处理；对于具体处理方法，可参见 Wiesemann et al. (2014); Hanasusanto et al. (2015)。类似地，前文提到的 $\mathscr{F}_{DY}$ 和 $\mathscr{F}_{M}$ 以及文献中更多有趣的形式 （例如，Bertsimas et al., 2019），也可借助辅助变量化为 $\mathscr{F}_{WKS}$ 的形式。</p>
+<h3 id="412--基于统计距离-statistical-distance-的模糊集">4.1.2  基于统计距离 (statistical distance) 的模糊集</h3>
+<p>在大数据时代背景下，问题环境中随机参数的历史数据越来越容易获取。为了获得随机参数概率分布，一种自然的想法是通过历史数据对应的经验分布来近似描述真实概率分布。经验分布是建立在 $N$ 条历史数据点上的离散均匀分布，它视每一条历史数据 $\hat{\boldsymbol{\varepsilon}}_\omega$ 为随机变量的一个支撑点，出现概率为$1/N$，即
+$$
+\hat{\mathbb{P}}[\tilde{\boldsymbol{\varepsilon}}^\dagger = \hat{\boldsymbol{\varepsilon}}_\omega] = \frac{1}{N}, ~ \forall \omega \in [N].
+$$
+其中 $\tilde{\boldsymbol{\varepsilon}}^\dagger$ 表示 $\tilde{\boldsymbol{\varepsilon}}$ 对应的经验随机变量。</p>
+<p>但经验分布并不等同于真正概率分布，分布鲁棒优化的思想是假设真正概率分布与经验分布在概率空间中的统计距离不超过某一阈值，并以此构建模糊集。
+基于此思想，如何定义两个概率分布间的统计距离成为了关键，它不仅需要具有良好的统计学意义，而且需要保证相应的分布鲁棒优化模型可处理。在此例举两种典型形式。</p>
+<p>第一是基于$\phi$-散度 ($\phi$-divergence) 的模糊集，定义为
+$$
+\begin{equation}
+\label{eq.dro.as.pd}
+\mathscr{F}_{\phi} = \left\{
+\mathbb{P} \in \mathscr{P}_0(\mathbb{R}^J)
+\left|
+\begin{array}{l}
+\tilde{\boldsymbol{\varepsilon}} \sim \mathbb{P}, \tilde{\boldsymbol{\varepsilon}}^\dagger \sim \hat{\mathbb{P}}, \\
+D_\phi(\mathbb{P}||\hat{\mathbb{P}}) \le \theta
+\end{array}
+\right.
+\right\},
+\end{equation} \tag{4.13}
+$$
+其中 $D_\phi(\mathbb{P}||\hat{\mathbb{P}})$ 表示所认为的真正分布 $\mathbb{P}$ 对于经验分布 $\hat{\mathbb{P}}$ 的 <strong>$\phi$-散度</strong>（“距离”），定义如 (4.14)；而 $\theta &gt; 0$ 为给定的“距离”上界。</p>
+<p>$$
+\begin{equation}
+D_\phi(\mathbb{P}||\hat{\mathbb{P}}) = \sum_{\omega \in [N]} \hat{\mathbb{P}}(\omega) \phi \left(\frac{\mathbb{P}(\omega)}{\hat{\mathbb{P}}(\omega)}\right) \tag{4.14}
+\end{equation}
+$$</p>
+<p>在 (4.14)中，$\phi:\mathbb{R}_+ \mapsto \mathbb{R}$ 为满足以下条件的凸函数：$\phi(1) = 0$，对于 $x &gt; 0$ 有 $0\phi(x/0)\triangleq x \lim_{t \rightarrow +\infty} \phi(t) / t$，且 $0\phi(0 / 0) \triangleq 0$；$\mathbb{P}(\omega)$ 表示概率分布 $\mathbb{P}$ 中第 $\omega \in [N]$ 个观测值发生的概率。可见，该模糊集要求真正的概率分布函数支撑集与经验分布支撑集相同，也就无法考量到历史数据以外的点/场景，而仅仅是将历史数据发生的概率从经验分布的各 $1/N$ 变成了更具“鲁棒性”的值。</p>
+<p>示例4.2：在此例举一种研究相对较多的 $\phi$ 函数形式：当 $\phi(x) = x \log x - x + 1$ 时，$\phi$散度具体化为 (4.15)，名为<strong>Kullback-Leibler 散度</strong>(KL divergence)，又名<strong>相对熵 (relative entropy)</strong>。
+$$
+\begin{equation}
+D_{KL}(\mathbb{P}||\hat{\mathbb{P}}) = \sum_{\omega \in [N]} \mathbb{P}(\omega) \log \left(\frac{\mathbb{P}(\omega)}{\hat{\mathbb{P}}(\omega)}\right) \tag{4.15}
+\end{equation}
+$$
+为后文阐述方便，将其模糊集记为 $\mathscr{F}_{KL}$，也就是 (4.13)中的将 $D_\phi$ 具体化为 $D_{KL}$。对于更多的 $\phi$ 函数形式，可参见 Ben-Tal et al. (2013); Jiang and Guan (2016)。</p>
+<p>第二是基于 Wasserstein 距离的模糊集，定义为
+$$
+\begin{equation}
+\mathscr{F}_W = \left\{ \mathbb{P} \in \mathscr{P}_0(\Xi)
+~\left|~
+\begin{array}{l}
+\displaystyle \tilde{\boldsymbol{\varepsilon}} \sim \mathbb{P}, \tilde{\boldsymbol{\varepsilon}}^\dagger \sim \hat{\mathbb{P}}, \\
+\displaystyle d_W(\mathbb{P}, \hat{\mathbb{P}}) \le \theta, \\
+\end{array}\right.
+\right\}. \tag{4.16}
+\end{equation}
+$$
+此模糊集囊括了概率空间中以 Wasserstein 距离为度量标准，以经验分布 $\hat{\mathbb{P}}$ 为球心，以 $\theta \in \mathbb{R}_+$ 为半径的球中所有的概率分布。Esfahani and Kuhn (2018)的研究表明，记真实但未知的概率分布为 $\mathbb{P}_0$，则当 $\theta$ 通过与样本量 $N$ 和参数 $\mathbb{E}ta \in (0,1)$ 有关的某函数取值时（随着 $N \rightarrow \infty$，有 $\theta \rightarrow 0$），从统计学上可证明 $\mathbb{P} \in \mathscr{F}_W$ 的置信度大于等于 $1 - \mathbb{E}ta$。<strong>Wasserstein 距离</strong> $d_W:\mathcal{P}_0(\Xi) \times \mathcal{P}_0(\Xi) \mapsto [0, +\infty)$ 表示所考虑的分布与经验分布在概率空间中的一种距离，定义为
+$$
+\begin{equation}
+\begin{array}{rll}
+d_W(\mathbb{P}, \hat{\mathbb{P}})  = \inf &amp; \displaystyle \mathbb{E}_{\bar{\mathbb{P}}} \big[\lVert \tilde{\boldsymbol{\varepsilon}} - \tilde{\boldsymbol{\varepsilon}}^\dagger \rVert \big] \\
+\mbox{s.t.}	&amp; \displaystyle \big(\tilde{\boldsymbol{\varepsilon}}, \tilde{\boldsymbol{\varepsilon}}^\dagger\big) \sim \bar{\mathbb{P}}, \\
+&amp; \displaystyle \tilde{\boldsymbol{\varepsilon}} \sim \mathbb{P}, \\
+&amp; \displaystyle \tilde{\boldsymbol{\varepsilon}}^\dagger \sim \hat{\mathbb{P}}, \\
+&amp; \displaystyle \bar{\mathbb{P}}\big[ (\tilde{\boldsymbol{\varepsilon}}, \tilde{\boldsymbol{\varepsilon}}^\dagger) \in \Xi \times \Xi \big] = 1,
+\end{array}
+\end{equation} \tag{4.17}
+$$
+其中的 $\bar{\mathbb{P}}$ 表示 $\tilde{\boldsymbol{\varepsilon}}$ 和 $\tilde{\boldsymbol{\varepsilon}}^\dagger$ 的\emph{联合概率分布}，$\lVert \cdot \rVert$ 表示范数。根据定义，可直观地将 Wasserstein 距离视为从真实分布 $\mathbb{P}$ 向经验分布 $\hat{\mathbb{P}}$ 移动概率质量 (probability mass) 的最小费用。上述定义准确说是<strong>1型 Wasserstein 距离</strong>，对于更一般的 Wasserstein 距离定义及更详细深入的介绍可参见Esfahani and Kuhn (2018); Gao and Kleywegt (2016); Zhao and Guan (2018)。</p>
+<h2 id="42-机会约束问题chance-constraint">4.2 机会约束问题（Chance constraint）</h2>
+<p>机会约束规划是指当优化问题环境参数为随机变量时，在以一定概率满足约束条件的情况下进行优化。自从Charnes and Cooper (1959) 提出来以来，该框架在管理科学等各领域得到了广泛研究与应用。作为抛砖引玉，本节讨论如何处理分布鲁棒、独立机会约束(4.4)，读者可进而自行研究更一般也更难处理的联合机会约束 (4.18)：
+$$
+\begin{equation}
+\mathbb{P} [y_m^0(\boldsymbol{x}) + \boldsymbol{y}_m(\boldsymbol{x})^\top\tilde{\boldsymbol{\varepsilon}} \le 0, ~\forall m \in [M]] \ge 1 - \epsilon, \quad \forall \mathbb{P} \in \mathscr{F},
+\end{equation} \tag{4.18}
+$$</p>
+<p>其中的 $M$ 个约束同时成立的概率不小于 $1 - \epsilon$。</p>
+<p>从计算角度看，约束式 (4.4) 左端项可等价表示为
+$$
+\begin{equation}
+\mathbb{E}_\mathbb{P}\big[\mathbb{1}\{y^0(\boldsymbol{x}) + \boldsymbol{y}(\boldsymbol{x})^\top\tilde{\boldsymbol{\varepsilon}} \le 0\}\big],
+\end{equation} \tag{4.19}
+$$
+其中，$\mathbb{1}\{\cdot\}$ 为指示函数，当其事件发生取值为1，否则为0。指示函数为非凸函数，导致 (4.19) 对 $\boldsymbol{x}$ 或 $\tilde{\boldsymbol{\varepsilon}}$ 而言皆为非凸函数，除个别特殊情况（如 $\tilde{\boldsymbol{\varepsilon}}$ 服从联合正态分布）外难以处理。事实上，即便给定决策变量 $\boldsymbol{x}$ 和概率分布 $\mathbb{P}$，计算 (4.4) 左端项的概率值一般而言已是 NP 难问题，更何况还要基于此对 $\boldsymbol{x}$ 进行优化 (Nemirovski and Shapiro, 2006)。而有趣的是，在给定某些模糊集 $\mathscr{F}$ 的情况下，(4.4) 却可处理。</p>
+<p>接下来讲述如何在分布鲁棒优化框架下对机会约束式 (4.4) 进行处理。易知，约束式 (4.4) 等价于
+$$
+\begin{equation}
+\displaystyle \inf_{\mathbb{P} \in \mathscr{F}}\mathbb{P}[y^0(\boldsymbol{x}) + \boldsymbol{y}(\boldsymbol{x})^\top\tilde{\boldsymbol{\varepsilon}} \le 0] \ge 1 - \epsilon. \tag{4.20}
+\end{equation}
+$$
+当 (4.20) 中模糊集取 $\mathscr{F} \triangleq \mathscr{F}_{MV}$ 且其中的 $\boldsymbol{\mu} \triangleq \boldsymbol{0}$ 时， Ghaoui et al. (2003) 的研究表明，(4.20) 等价于
+$$
+\begin{equation}
+\label{eq.dro.cc.mv.eq}
+\displaystyle y^0(\boldsymbol{x}) + \sqrt{\frac{1 - \epsilon}{\epsilon}} \sqrt{\boldsymbol{y}(\boldsymbol{x})^\top\boldsymbol{\Sigma} \boldsymbol{y}(\boldsymbol{x})} \le 0. \tag{4.21}
+\end{equation}
+$$
+这里，令 $\boldsymbol{\mu} \triangleq \boldsymbol{0}$ 并不失一般性，因为如果 $\boldsymbol{\mu} \not= \boldsymbol{0}$ 则可通过变量替换的方法，令 $\tilde{\boldsymbol{\xi}} \triangleq \tilde{\boldsymbol{\varepsilon}} - \boldsymbol{\mu}$ 并将 $\tilde{\boldsymbol{\xi}}$ 视为 (4.20) 中的 $\tilde{\boldsymbol{\varepsilon}}$。有趣的是，(4.21) 恰好等价于传统鲁棒优化约束式
+$$
+\begin{equation}
+\label{eq.ro}
+\displaystyle y^0(\boldsymbol{x}) + \boldsymbol{y}(\boldsymbol{x})^\top \boldsymbol{\varepsilon} \le 0, \quad \forall \boldsymbol{\varepsilon} \in \Xi(\epsilon), \tag{4.22}
+\end{equation}
+$$</p>
+<p>其中，不确定集为椭球形，给定为
+$$
+\Xi(\epsilon) \triangleq \left\{\boldsymbol{\varepsilon} \in \mathbb{R}^J \left|~\lVert \boldsymbol{\Sigma}^{1/2}\boldsymbol{\varepsilon}\rVert_2 \le \sqrt{\frac{1-\epsilon}{\epsilon}} \right. \right\}.
+$$
+关于 (4.21)与(4.22)的关系，可参见 Natarajan et al. (2009)。</p>
+<p>当 (4.20) 中模糊集取 $\mathscr{F} \triangleq \mathscr{F}_{MVS}$ 时，分布鲁棒机会约束规划一般不可处理。研究者们提出了基于<strong>条件风险值</strong> (Conditional Value-at-Risk) 的近似方法进行处理，感兴趣的读者可参见  Chen et al. (2010); Zymler et al. (2013) 等。</p>
+<p>当 $\mathscr{F} \triangleq \mathscr{F}_{WKS}$ 且其中 $K = 1, \underline{p}_1 = \overline{p}_1 = 1$ 时，Hanasusanto et al. (2015) 证明了 (4.20) 等价于如下一系列锥优化约束：
+$$
+\begin{array}{lll}
+\mathbb{E}ta + \boldsymbol{b}^\top \boldsymbol{\gamma} \ge (1 - \epsilon) \tau,
+&amp; \mathbb{E}ta + \boldsymbol{c}_1^\top \boldsymbol{\phi} \le \tau,
+&amp; \mathbb{E}ta + \boldsymbol{c}_1^\top \boldsymbol{\psi} \le -y^0(\boldsymbol{x}), \\
+\boldsymbol{A}^\top \boldsymbol{\gamma} = \boldsymbol{C}_1^\top \boldsymbol{\phi},
+&amp; \boldsymbol{B}^\top \boldsymbol{\gamma} = \boldsymbol{D}_1^\top \boldsymbol{\phi}, \\
+\boldsymbol{A}^\top \boldsymbol{\gamma} + \boldsymbol{y}(\boldsymbol{x}) = \boldsymbol{C}_1^\top \boldsymbol{\psi},
+&amp; \boldsymbol{B}^\top \boldsymbol{\gamma} = \boldsymbol{D}_1^\top \boldsymbol{\psi}, \\
+\mathbb{E}ta \in \mathbb{R}, \boldsymbol{\gamma} \in \mathbb{R}^L, \tau \in \mathbb{R}_+,
+&amp;  \boldsymbol{\phi}, \boldsymbol{\psi} \in \mathscr{K}_1^\ast
+\end{array}
+$$</p>
+<p>其中 $\mathscr{K}_1^\ast$ 表示 $\mathscr{K}_1$ 的对偶锥 (Ben-Tal and Nemirovski, 2001)。考虑到 $\mathscr{F}_M$ 和 $\mathscr{F}_{DY}$ 均为 $\mathscr{F}_{WKS}$ 的特例，当 $\mathscr{F} \triangleq \mathscr{F}_M$ (其中支撑集为 (4.10)的形式) 或 $\mathscr{F} \triangleq \mathscr{F}_{DY}$ 时，(4.4)可等价转化成锥优化约束形式。</p>
+<p>作为 Hanasusanto et al. (2015) 的扩展，Xie and Ahmed (2018) 考虑了更一般的模糊集，研究了分布鲁棒独立机会约束规划和联合机会约束规划的等价凸优化形式。对于考虑均值、散度上界、支撑集的一类模糊集，Hanasusanto et al. (2017) 研究了其分布鲁棒联合机会约束规划的计算复杂度及求解方法。</p>
+<p>当 (4.20) 中模糊集取 $\mathscr{F} \triangleq \mathscr{F}_{KL}$ 时，Jiang and Guan (2016) 的研究表明，(4.20) 等价于
+$$
+\begin{equation}
+\label{eq.dro.cc.kl.eq}
+\displaystyle \hat{\mathbb{P}}[y^0(\boldsymbol{x}) + \boldsymbol{y}(\boldsymbol{x})^\top\tilde{\boldsymbol{\varepsilon}} \le 0] \ge 1 - \bar{\epsilon}.
+\end{equation} \tag{4.23}
+$$</p>
+<p>其中，
+$$
+\bar{\epsilon} \triangleq 1 - \inf_{t \in (0, 1)} \frac{e^{-\theta}t^{1 - \epsilon} - 1}{t - 1}.
+$$
+由此可见，它与随机规划中基于采样平均近似 (sample average approximation) 的机会约束式 (4.24) 相比，仅仅是具有不同的概率界 $\bar{\epsilon}$ 而已。此外，对于一般的$\phi$散度形式下分布鲁棒联合机会约束规划的处理方法，可详见  Jiang and Guan (2016)。
+$$
+\begin{equation}
+\label{eq.dro.cc.saa}
+\displaystyle \hat{\mathbb{P}}[y^0(\boldsymbol{x}) + \boldsymbol{y}(\boldsymbol{x})^\top\tilde{\boldsymbol{\varepsilon}} \le 0] \ge 1 - \epsilon. \tag{4.24}
+\end{equation}
+$$
+作为常用技巧，(4.24)可通过引入0-1辅助决策变量的方法等价转换为
+$$
+\begin{equation}
+\label{eq.dro.cc.saa.eq}
+\begin{array}{ll}
+\displaystyle y^0(\boldsymbol{x}) + \boldsymbol{y}(\boldsymbol{x})^\top\hat{\boldsymbol{\varepsilon}}_\omega\le M_0 (1 - z_\omega), &amp; \forall \omega \in [N], \\
+\displaystyle \frac{\sum_{\omega \in [N]} z_\omega}{N} \ge 1 - \epsilon, \\
+\boldsymbol{z} \in \{0, 1\}^N.
+\end{array}
+\end{equation}
+$$</p>
+<p>其中，$M_0$ 为一个足够大的实数。观察可知，当$y^0(\boldsymbol{x}) + \boldsymbol{y}(\boldsymbol{x})^\top\hat{\boldsymbol{\varepsilon}}_\omega\le 0$ 时，$z_\omega$ 可取值 1，代表该约束在第 $\omega$ 个场景中成立，否则不得不取值 0。</p>
+<p>当 $\mathscr{F} \triangleq \mathscr{F}_W$ 时，Chen et al. (2018); Xie (2019) 讨论了如何处理分布鲁棒（独立和联合）机会约束规划问题，他们用不同的方法得到了相同的结论。此时，独立机会约束(4.20)等价于如下混合 0-1 锥优化约束
+$$
+\begin{array}{ll}
+\epsilon N t - \boldsymbol{e}^\top \boldsymbol{s} \ge \theta N \lVert \boldsymbol{y}(\boldsymbol{x}) \rVert_\ast, \\
+\boldsymbol{y}(\boldsymbol{x})^\top \hat{\boldsymbol{\varepsilon}}_\omega - y^0(\boldsymbol{x}) + M_0 z_\omega \ge t - s_\omega, &amp; \forall \omega \in [N], \\
+M_0(1 - z_\omega) \ge t - s_\omega, &amp; \forall \omega \in [N], \\
+t \in \mathbb{R}, \boldsymbol{z} \in \{0, 1\}^N, \boldsymbol{s} \in \mathbb{R}^{N}.
+\end{array}
+$$
+其中 $\boldsymbol{e}$ 代表长度为 $N$、元素全为 1 的向量，$\lVert \cdot \rVert_\ast$ 为 (4.17)中 $\lVert \cdot \rVert$ 对应的对偶范数 (Boyd et al., 2004)。</p>
+<h2 id="43-分布鲁棒线性优化distributionally-robust-linear-optimization">4.3 分布鲁棒线性优化（Distributionally robust linear optimization）</h2>
+<p>现实世界中很多优化问题可建模或近似为线性规划问题。线性约束不仅本身可描述许多现实问题的资源约束，而且可建模或近似更复杂的资源约束。作为抛砖引玉，本节讨论如何处理分布鲁棒线性优化约束式 (4.5})，读者可进而自行研究更一般也更难处理的非线性约束，例如：
+$$
+\begin{equation}
+\label{dro.con.pl}
+\mathbb{E}_{\mathbb{P}} \big[\max_{k \in [K]} \{y_k^0(\boldsymbol{x}) + \boldsymbol{y}_k(\boldsymbol{x})^\top\tilde{\boldsymbol{\varepsilon}}\}\big] \le 0, \quad \forall \mathbb{P} \in \mathscr{F},
+\end{equation} \tag{4.26}
+$$
+其左端项为关于 $\boldsymbol{x}$ 和 $\tilde{\boldsymbol{\varepsilon}}$ （各自）的分段线性凸函数；此形式出现在许多管理科学问题中，如库存管理 (See and Sim, 2010; Mamani et al., 2017)、预约调度  (Mak et al., 2015; Kong et al., 2013; Qi, 2017)、带时间窗的车辆路径问题  (Zhang et al., 2019)，等等。</p>
+<p>接下来探讨如何处理分布鲁棒线性优化约束式 (4.5)。易知，它等价于
+$$
+\begin{equation}
+\label{dro.con.lo.eq}
+\sup_{\mathbb{P} \in \mathscr{F}} \mathbb{E}_\mathbb{P}[y^0(\boldsymbol{x}) + \boldsymbol{y}(\boldsymbol{x})^\top \tilde{\boldsymbol{\varepsilon}}] \le 0.
+\end{equation} \tag{4.27}
+$$
+处理该约束的关键是考察左端项中优化问题
+$$
+\begin{equation}
+\label{dro.mod}
+Z_P(\boldsymbol{x}) = \sup_{\mathbb{P} \in \mathscr{F}} \mathbb{E}_\mathbb{P}[\boldsymbol{y}(\boldsymbol{x})^\top \tilde{\boldsymbol{\varepsilon}}]
+\end{equation} \tag{4.28}
+$$</p>
+<p>的对偶问题。注意，该优化问题中 $\boldsymbol{x}$ 被视为给定参数，而概率分布 $\mathbb{P}$ 才是决策变量。抽象地，(4.28) 的对偶问题形式为
+$$
+\begin{equation}
+\label{dro.mod.dual}
+Z_D(\boldsymbol{x}) = \inf_{\boldsymbol{p} \in \mathscr{P}(\boldsymbol{x})} f(\boldsymbol{p}).
+\end{equation}
+$$
+其中 $\boldsymbol{p}$ 为对偶决策变量，$\mathscr{P}(\boldsymbol{x})$ 为其可行域，$f(\boldsymbol{p})$ 为目标函数，$\boldsymbol{y}(\boldsymbol{x})$ 作为参数被包含于 $\mathscr{P}(\boldsymbol{x})$ 中。在某些条件下，强对偶定理对此成立，则 $Z_P = Z_D$。于是，(4.27) 等价于
+$$
+\begin{equation}
+\label{eq.dro.lo.eq}
+\begin{array}{ll}
+y^0(\boldsymbol{x}) + f(\boldsymbol{p}) \le 0, \\
+\boldsymbol{p} \in \mathscr{P}(\boldsymbol{x}).
+\end{array} \tag{4.30}
+\end{equation}
+$$</p>
+<p>因此，技术上主要关注如何在取不同模糊集 $\mathscr{F}$ 的情况下求解 (4.28) 的对偶问题并证明强对偶定理成立。</p>
+<p>当 $\mathscr{F} \triangleq \mathscr{F}_{MV}$ 或 $\mathscr{F} \triangleq \mathscr{F}_{MVS}$ 时，由于已知 $\tilde{\boldsymbol{\varepsilon}}$ 的均值 $\boldsymbol{\mu}$，故 (4.28)等价于 $Z_P(\boldsymbol{x}) = \boldsymbol{y}(\boldsymbol{x})^\top \boldsymbol{\mu}$。Popescu (2007) 针对 $\mathscr{F} \triangleq \mathscr{F}_{MV}$ 且 (4.28) 目标函数变为某一类非线性函数的情形，研究了其等价模型与求解方法。</p>
+<p>当 (4.28)中 $\mathscr{F} \triangleq \mathscr{F}_{DY}$ 时，则在某些技术性条件下，Delage and Ye (2010)  推导出其对偶问题 (4.29) 的具体形式：
+$$
+\begin{equation}
+\label{dro.mod.dy.dual}
+\begin{array}{rll}
+\displaystyle Z_D(\boldsymbol{x}) = \min_{\boldsymbol{Q}, \boldsymbol{q}, r, t} &amp; r + t \\
+\mbox{s.t.} &amp; r \ge \boldsymbol{y}(\boldsymbol{x})^\top \boldsymbol{\varepsilon} - \boldsymbol{\varepsilon}^\top \boldsymbol{Q} \boldsymbol{\varepsilon} - \boldsymbol{\varepsilon}^\top \boldsymbol{q},  \forall \boldsymbol{\varepsilon} \in \Xi, \\
+&amp; t \ge (\gamma_2 \boldsymbol{\Sigma} + \boldsymbol{\mu} \boldsymbol{\mu}^\top) \bullet \boldsymbol{Q} + \boldsymbol{\mu}^\top \boldsymbol{q} + \sqrt{\gamma_1} \lVert \boldsymbol{\Sigma}^{1/2} (\boldsymbol{q} + 2 \boldsymbol{Q} \boldsymbol{\mu}) \rVert, \\
+&amp; \boldsymbol{Q} \succeq \boldsymbol{0},
+\end{array} \tag{4.31}
+\end{equation}
+$$
+其中 ``$\bullet$'' 表示矩阵间的弗罗贝尼乌斯内积。注意到 (4.31) 中的第一个约束实则为（传统）鲁棒优化约束，因此求解 $\mathscr{F}_{DY}$ 模糊集下的分布鲁棒优化问题 (4.28) 等价于求解鲁棒优化问题 (4.31)，而上一章已讲述如何求解鲁棒优化问题。</p>
+<p>当 (4.28) 中 $\mathscr{F} \triangleq \mathscr{F}_{WKS}$ 时，则在某些技术性条件下，Wiesemann et al. (2014)推导出其对偶问题 (4.29) 的具体形式：
+$$
+\begin{equation}
+\label{dro.mod.wks.dual}
+\begin{array}{rll}
+\displaystyle Z_D(\boldsymbol{x}) = \min_{\boldsymbol{\mathbb{E}ta}, \boldsymbol{\eta}, \boldsymbol{\lambda}, \boldsymbol{\phi}} &amp; \displaystyle \boldsymbol{b}^\top \boldsymbol{\mathbb{E}ta} + \sum_{k \in [K]} \overline{\boldsymbol{p}}_k \boldsymbol{\eta}_k - \underline{\boldsymbol{p}}_k \boldsymbol{\lambda}_k \\
+\mbox{s.t.} &amp; \displaystyle \boldsymbol{c}_k^\top \boldsymbol{\phi}_k \le \sum_{k' \in \mathcal{A}(k)} (\boldsymbol{\eta}_{k'} - \boldsymbol{\lambda}_{k'}), &amp; \forall k \in [K], \\
+&amp; \boldsymbol{C}_k^\top \boldsymbol{\phi}_k + \boldsymbol{A}^\top \boldsymbol{\mathbb{E}ta} = \boldsymbol{y}(\boldsymbol{x}), &amp; \forall k \in [K], \\
+&amp; \boldsymbol{D}_k^\top \boldsymbol{\phi}_k + \boldsymbol{B}^\top \boldsymbol{\mathbb{E}ta} = \boldsymbol{0}, &amp; \forall k \in [K], \\
+&amp; \boldsymbol{\phi}_k \in \mathscr{K}_k^\ast, &amp; \forall k \in [K],
+\end{array} \tag{4.32}
+\end{equation}
+$$</p>
+<p>其中，$\mathcal{A}(k) \triangleq \{k' \in [K]~|~ \Xi_{k'} \mbox{严格包含于} \Xi_{k} \}$，$\mathscr{K}_k^\ast$ 表示 $\mathscr{K}$ 的对偶锥 。</p>
+<p>当 (4.28)中 $\mathscr{F} \triangleq \mathscr{F}_{KL}$ 时，则在某些技术性条件下，Hu and Hong (2013)推导出其对偶问题 (4.29) 的具体形式：
+$$
+\begin{equation}
+\label{dro.mod.kl.dual}
+\begin{array}{rll}
+\displaystyle Z_D(\boldsymbol{x}) = \min_{\alpha \ge 0} &amp; \alpha \log \mathbb{E}_{\hat{\mathbb{P}}}[e^{\boldsymbol{y}(\boldsymbol{x})^\top \tilde{\boldsymbol{\varepsilon}}^\dagger / \alpha}] + \alpha \theta.
+\end{array} \tag{4.33}
+\end{equation}
+$$</p>
+<p>其中的目标函数为凸函数，因此可用内点法  (Ben-Tal et al., 2013) 或分段线性函数逼近(Long and Qi, 2014)等方法进行处理。</p>
+<p>当 (4.28)中 $\mathscr{F} \triangleq \mathscr{F}_{W}$ 且其中的支撑集为 $\Xi \triangleq \{\boldsymbol{\varepsilon} \in \mathbb{R}^I~|~\boldsymbol{C}\boldsymbol{\varepsilon} \le \boldsymbol{d}\}$ 时，则在某些技术性条件下，Esfahani and Kuhn (2018) 推导出其对偶问题 (4.29) 的具体形式：
+$$
+\begin{equation}
+\label{dro.mod.w.dual}
+\begin{array}{rll}
+\displaystyle Z_D(\boldsymbol{x}) = \inf_{\lambda, \boldsymbol{s}, \boldsymbol{\gamma}} &amp;\displaystyle \lambda \theta + \frac{1}{N} \sum_{\omega \in [N]} s_\omega \\
+\mbox{s.t.} &amp; \boldsymbol{y}(\boldsymbol{x})^\top \hat{\boldsymbol{\varepsilon}}_\omega + \boldsymbol{\gamma}_\omega^\top (\boldsymbol{d} - \boldsymbol{C} \hat{\boldsymbol{\varepsilon}}_\omega) \le s_\omega, &amp; \forall \omega \in [N], \\
+&amp; \lVert \boldsymbol{C}^\top \boldsymbol{\gamma}_\omega - \boldsymbol{y}(\boldsymbol{x}) \rVert_\ast \le \lambda, &amp; \forall \omega \in [N], \\
+&amp; \boldsymbol{\gamma}_\omega \ge \boldsymbol{0} &amp; \forall \omega \in [N].
+\end{array} \tag{4.34}
+\end{equation}
+$$</p>
+<p>将以上各结果嵌入到 (4.30)即可得到 (4.27)的等价形式，进而求解鲁棒线性规划问题。</p>
+<p>事实上，Popescu (2007); Delage and Ye (2010); Wiesemann et al. (2014); Esfahani and Kuhn (2018) 的研究均解决了 (4.26) 的等价转化问题，而上述结论针对 (4.27)，只是(4.26) 中 $K = 1$ 时的特例，感兴趣的读者可细读他们的论文。</p>
+<h2 id="参考文献">参考文献</h2>
+<p><strong>Ben-Tal, Aharon and Arkadi Nemirovski,</strong> Lectures on modern convex optimization: analysis, algorithms, and engineering applications, Vol. 2, Siam, 2001.</p>
+<p><strong>__ , Dick Den Hertog, Anja De Waegenaere, Bertrand Melenberg, and Gijs Rennen,</strong> “Robust solutions of optimization problems affected by uncertain probabilities,” Management Science, 2013, 59 (2), 341–357.</p>
+<p><strong>Bertsimas, Dimitris and Ioana Popescu,</strong> “Optimal inequalities in probability theory: A convex optimization approach,” SIAM Journal on Optimization, 2005, 15 (3), 780–804.</p>
+<p><strong>__ , Melvyn Sim, and Meilin Zhang</strong>, “Adaptive distributionally robust optimization,” Management Science, 2019, 65 (2), 604–618.</p>
+<p><strong>Boyd, Stephen, Stephen P Boyd, and Lieven Vandenberghe</strong>, Convex optimization, Cambridge university press, 2004.</p>
+<p><strong>Charnes, Abraham and William W Cooper,</strong> “Chance-constrained programming,” Management Science, 1959, 6 (1), 73–79.</p>
+<p><strong>Chen, Wenqing and Melvyn Sim,</strong> “Goal-driven optimization,” Operations Research, 2009, 57 (2), 342–357.</p>
+<p><strong>__ , __ ,</strong> <strong>Jie Sun, and Chung-Piaw Teo</strong>, “From CVaR to uncertainty set: Implications in joint chance-constrained optimization,” Operations Research, 2010, 58 (2), 470–485.</p>
+<p><strong>Chen, Zhi, Daniel Kuhn, and Wolfram Wiesemann,</strong> “Data-driven chance constrained programs over Wasser- stein balls,” Available at arXiv:1809.00210, 2018.</p>
+<p><strong>Delage, Erick and Yinyu Ye,</strong> “Distributionally robust optimization under moment uncertainty with application to data-driven problems,” Operations Research, 2010, 58 (3), 595–612.</p>
+<p><strong>Esfahani, Peyman Mohajerin and Daniel Kuhn,</strong> “Data-driven distributionally robust optimization using the Wasserstein metric: Performance guarantees and tractable reformulations,” Mathematical Programming, 2018, 171 (1-2), 115–166.</p>
+<p><strong>Gao, Rui and Anton J Kleywegt,</strong> “Distributionally robust stochastic optimization with Wasserstein distance,” Available at arXiv:1604.02199, 2016.</p>
+<p><strong>Ghaoui, Laurent El, Maksim Oks, and Francois Oustry,</strong> “Worst-case value-at-risk and robust portfolio optimization: A conic programming approach,” Operations Research, 2003, 51 (4), 543–556.</p>
+<p><strong>Hanasusanto, Grani A, Vladimir Roitch, Daniel Kuhn, and Wolfram Wiesemann,</strong> “A distributionally robust perspective on uncertainty quantification and chance constrained programming,” Mathematical Programming, 2015, 151 (1), 35–62.</p>
+<p><strong>__ , __ , __, and __ ,</strong> “Ambiguous joint chance constraints under mean and dispersion information,” Operations Research, 2017, 65 (3), 751–767.</p>
+<p><strong>Hu, Zhaolin and Lj Hong</strong>, “Kullback-Leibler Divergence -Constrained Distributionally Robust Optimization,” Optimization Online, 2013, (2), 1–34.</p>
+<p><strong>Jiang, Ruiwei and Yongpei Guan,</strong> “Data-driven chance constrained stochastic program,” Mathematical Pro- gramming, 2016, 158 (1-2), 291–327.</p>
+<p><strong>Kong, Qingxia, Chung-Yee Lee, Chung-Piaw Teo, and Zhichao Zheng,</strong> “Scheduling arrivals to a stochastic service delivery system using copositive cones,” Operations Research, 2013, 61 (3), 711–726.</p>
+<p><strong>Long, Daniel Zhuoyu and Jin Qi,</strong> “Distributionally robust discrete optimization with Entropic Value-at-Risk,” Operations Research Letters, 2014, 42 (8), 532–538.</p>
+<p><strong>Mak, Ho-Yin, Ying Rong, and Jiawei Zhang,</strong> “Appointment scheduling with limited distributional informa- tion,” Management Science, 2015, 61 (2), 316–334.</p>
+<p><strong>Mamani, Hamed, Shima Nassiri, and Michael R Wagner,</strong> “Closed-form solutions for robust inventory management,” Management Science, 2017, 63 (5), 1625–1643.</p>
+<p><strong>Natarajan, Karthik, Chung Piaw Teo, and Zhichao Zheng,</strong> “Mixed 0-1 linear programs under objective uncertainty: A completely positive representation,” Operations Research, 2011, 59 (3), 713–728.</p>
+<p><strong>__ , Dessislava Pachamanova, and Melvyn Sim,</strong> “Constructing Risk Measures from Uncertainty Sets,” Oper- ations Research, 2009, 57 (5), 1129–1141.</p>
+<p><strong>Nemirovski, Arkadi and Alexander Shapiro,</strong> “Convex approximations of chance constrained programs,” SIAM Journal on Optimization, 2006, 17 (4), 969–996.</p>
+<p><strong>Popescu, Ioana,</strong> “Robust mean-covariance solutions for stochastic optimization,” Operations Research, 2007, 55 (1), 98–112.</p>
+<p><strong>Qi, Jin,</strong> “Mitigating delays and unfairness in appointment systems,” Management Science, 2017, 63 (2), 566–583.</p>
+<p><strong>See, Chuen-Teck and Melvyn Sim,</strong> “Robust approximation to multiperiod inventory management,” Operations Research, 2010, 58 (3), 583–594.</p>
+<p><strong>Wiesemann, Wolfram, Daniel Kuhn, and Melvyn Sim,</strong> “Distributionally robust convex optimization,” Oper- ations Research, 2014, 62 (6), 1358–1376.</p>
+<p><strong>Xie, Weijun</strong>, “On distributionally robust chance constrained programs with Wasserstein distance,” Mathematical Programming, 2019, pp. 1–41.</p>
+<p><strong>__ and Shabbir Ahmed,</strong> “On deterministic reformulations of distributionally robust joint chance constrained optimization problems,” SIAM Journal on Optimization, 2018, 28 (2), 1151–1182.</p>
+<p><strong>Zhang, Yu, Roberto Baldacci, Melvyn Sim, and Jiafu Tang,</strong> “Routing optimization with time windows under uncertainty,” Mathematical Programming, 2019, 175 (1-2), 263–305.</p>
+<p><strong>Zhao, Chaoyue and Yongpei Guan,</strong> “Data-driven risk-averse stochastic optimization with Wasserstein metric,” Operations Research Letters, 2018, 46 (2), 262–267.</p>
+<p><strong>Zymler, Steve, Daniel Kuhn, and Berç Rustem,</strong> “Distributionally robust joint chance constraints with second- order moment information,” Mathematical Programming, 2013, 137 (1-2), 167–198.</p>
+
+    </div>
+
+    
+    
+
+
+    
+    
+
+    <footer class="post-footer">
+      
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/RoSite/post/ch3/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">第三章 经典鲁棒优化</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+          <a class="next" href="/RoSite/post/ch5/">
+            <span class="next-text nav-default">第五章 多阶段问题与线性决策规则</span>
+            <span class="prev-text nav-mobile">Next</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+    
+
+  
+
+  <div id="remark42"></div>
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="icon-links">
+  
+  
+    <a href="mailto:operations_r@163.com" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://github.com/Operations-Research-Science" rel="me noopener" class="iconfont"
+      title="github"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M512 12.672c-282.88 0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667 0-12.16-0.426667-44.373333-0.64-87.04-142.421333 30.890667-172.458667-68.693333-172.458667-68.693333C188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333 0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333 0 0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52 0.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667 0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72 0 68.522667-0.64 123.562667-0.64 140.202666 0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://www.zhihu.com/org/yun-chou-orwei-wo" rel="me noopener" class="iconfont"
+      title="zhihu"  target="_blank"
+      >
+      <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M351.791182 562.469462l192.945407 0c0-45.367257-21.3871-71.939449-21.3871-71.939449L355.897709 490.530013c3.977591-82.182744 7.541767-187.659007 8.816806-226.835262l159.282726 0c0 0-0.86367-67.402109-18.578124-67.402109s-279.979646 0-279.979646 0 16.850783-88.141456 39.318494-127.053698c0 0-83.60514-4.510734-112.121614 106.962104S81.344656 355.077018 76.80834 367.390461c-4.536316 12.313443 24.62791 5.832845 36.941354 0 12.313443-5.832845 68.050885-25.924439 84.252893-103.69571l86.570681 0c1.165546 49.28652 4.596691 200.335724 3.515057 226.835262L109.86113 490.530013c-25.275663 18.147312-33.701566 71.939449-33.701566 71.939449L279.868105 562.469462c-8.497535 56.255235-23.417339 128.763642-44.275389 167.210279-33.05279 60.921511-50.55235 116.65793-169.802314 212.576513 0 0-19.442818 14.257725 40.829917 9.073656 60.273758-5.185093 117.305683-20.739347 156.840094-99.807147 20.553105-41.107233 41.805128-93.250824 58.386782-146.138358l-0.055259 0.185218 167.855986 193.263655c0 0 22.035876-51.847855 5.832845-108.880803L371.045711 650.610918l-42.1244 31.157627-0.045025 0.151449c11.69946-41.020252 20.11206-81.5749 22.726607-116.858498C351.665315 564.212152 351.72876 563.345412 351.791182 562.469462z"></path>
+  <path d="M584.918753 182.033893l0 668.840094 70.318532 0 28.807093 80.512708 121.875768-80.512708 153.600307 0L959.520453 182.033893 584.918753 182.033893zM887.150192 778.934538l-79.837326 0-99.578949 65.782216-23.537066-65.782216-24.855084 0L659.341766 256.673847l227.807403 0L887.149169 778.934538z"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://space.bilibili.com/403058474" rel="me noopener" class="iconfont"
+      title="bilibili"  target="_blank"
+      >
+      <svg
+  class="icon" style="" viewBox="0 0 1024 1024" version="1.1" width="36"
+  height="36" id="svg8">
+  <path
+      style=""
+      d="M 744.60599,0.00486267 A 41.779915,41.779915 0 0 0 710.4184,18.673394 L 548.5048,255.32642 h -11.70046 a 41.779915,41.779915 0 0 0 -10.80295,-7.84928 L 235.66,97.084498 a 41.779915,41.779915 0 0 0 -20.07193,-4.960864 41.779915,41.779915 0 0 0 -18.3748,79.145436 L 359.4859,255.32642 H 128.16909 c -49.458302,0 -89.27932,39.82105 -89.27932,89.27932 v 508.65224 c 0,49.4583 39.821018,89.27934 89.27932,89.27934 h 19.48445 C 149.12802,984.5043 179.92773,1024 224.79179,1024 c 44.86407,0 75.66379,-39.4957 77.13826,-81.46268 H 719.98116 C 721.45559,984.5043 752.25533,1024 797.1194,1024 c 44.86406,0 75.6638,-39.4957 77.13824,-81.46268 h 21.57323 c 49.45831,0 89.27936,-39.82104 89.27936,-89.27934 V 344.60574 c 0,-49.45827 -39.82105,-89.27932 -89.27936,-89.27932 H 649.74567 L 779.38103,65.866924 A 41.779915,41.779915 0 0 0 744.60599,0.00486267 Z M 644.49108,418.70871 c 6.29985,0.21538 12.44451,2.01107 17.86888,5.22196 l 171.36218,98.10771 c 18.23417,10.21935 24.63334,33.34627 14.24614,51.48533 -10.38726,18.13909 -33.57344,24.32718 -51.61587,13.77296 L 624.9903,489.18895 c -15.21356,-8.41858 -22.66871,-26.1765 -18.03211,-42.93436 4.63664,-16.75784 20.15573,-28.14465 37.53289,-27.54588 z M 350.2006,432.31846 c 16.89952,0.0317 31.69582,11.33328 36.17844,27.62747 4.48262,16.2942 -2.44981,33.57765 -16.95507,42.24898 l -140.7157,86.91312 c -17.68528,11.18244 -41.09629,5.77692 -52.08912,-12.02686 -10.99282,-17.80373 -5.33855,-41.15658 12.58167,-51.95857 L 329.9002,438.2095 c 6.0643,-3.86439 13.10951,-5.90891 20.3004,-5.89104 z M 501.605,641.53985 c 3.75002,-0.15248 7.48645,0.53903 10.93349,2.0235 0.15842,0.0637 0.31618,0.12888 0.47325,0.19582 0.59328,0.27092 1.17574,0.56489 1.74609,0.88121 0.15868,0.0854 0.31643,0.17233 0.47325,0.2611 0.55694,0.32165 1.10131,0.66458 1.63185,1.02807 0.16455,0.1123 0.32777,0.2265 0.48956,0.34269 0.50382,0.36781 0.99371,0.75428 1.46868,1.15864 0.18724,0.15504 0.37218,0.31282 0.55484,0.47323 0.43271,0.38784 0.8518,0.79061 1.25653,1.20756 0.15449,0.16114 0.30679,0.32437 0.45693,0.48959 0.40798,0.44266 0.79989,0.89988 1.17494,1.37076 0.17799,0.22544 0.35205,0.45395 0.5222,0.68538 0.25932,0.34701 0.50964,0.70071 0.75064,1.06071 0.26712,0.39516 0.52286,0.79784 0.76699,1.20757 0.16907,0.29043 0.33231,0.58424 0.48957,0.88123 0.21836,0.41297 0.42513,0.83199 0.62009,1.25653 0.14836,0.32333 0.28983,0.64976 0.42429,0.97911 0.21319,0.51552 0.40915,1.03801 0.58747,1.5666 0.0677,0.19499 0.13296,0.39085 0.19582,0.58748 0.18652,0.60823 0.34984,1.22334 0.48957,1.84399 0.0397,0.16277 0.0779,0.32601 0.11423,0.48957 0.1436,0.69112 0.25788,1.38801 0.34269,2.08877 0.005,0.0381 0.0111,0.0761 0.0163,0.11424 0.0857,0.78056 0.13474,1.56471 0.14687,2.34988 0.005,0.0543 0.0111,0.10879 0.0163,0.1632 0,0 -0.008,1.12132 0,1.45234 0,0 -0.14697,17.84761 5.89102,34.12231 3.01902,8.13734 7.33278,15.10615 12.61433,19.61501 5.28157,4.50889 11.42894,7.62081 23.64572,7.62081 12.2168,0 18.36416,-3.11192 23.64573,-7.62081 5.28154,-4.50886 9.5953,-11.47767 12.6143,-19.61501 6.03799,-16.2747 5.89103,-34.12231 5.89103,-34.12231 -0.44885,-13.87045 10.45922,-25.46302 24.3311,-25.86506 13.87189,-0.40201 25.42828,10.53953 25.78348,24.41272 0,0 1.11929,25.7226 -9.00791,53.01927 -5.06359,13.64832 -13.1986,28.46036 -27.05631,40.29073 -13.85772,11.83039 -33.5454,19.63135 -56.20142,19.63135 -22.65603,0 -42.34371,-7.80096 -56.20141,-19.63135 -4.1801,-3.56856 -7.78733,-7.42433 -10.99878,-11.42303 -3.21235,4.00037 -6.81703,7.85309 -10.99876,11.42303 -13.85773,11.83039 -33.5454,19.63135 -56.20144,19.63135 -22.65601,0 -42.3437,-7.80096 -56.2014,-19.63135 -13.85775,-11.83037 -21.99272,-26.64241 -27.05632,-40.29073 -10.12725,-27.29667 -9.00789,-53.01928 -9.00789,-53.01927 0.20714,-13.83687 11.58744,-24.88848 25.42444,-24.69013 14.1263,0.19991 25.2971,12.0278 24.69011,26.14247 0,0 -0.14697,17.84761 5.89103,34.12231 3.01902,8.13734 7.31646,15.10615 12.598,19.61501 5.28155,4.50889 11.44526,7.62081 23.66203,7.62081 12.21681,0 18.36418,-3.11192 23.64573,-7.62081 5.28154,-4.50886 9.57899,-11.47767 12.598,-19.61501 5.76352,-15.53489 5.89112,-32.05691 5.89103,-33.56746 0.006,-0.37466 0.0111,-1.05336 0.0163,-1.20759 -0.0117,-0.74583 0.0105,-1.49177 0.0652,-2.23565 0.009,-0.15784 0.0204,-0.31561 0.0327,-0.47324 0.14204,-1.56859 0.43163,-3.12027 0.86487,-4.63449 0.0213,-0.0763 0.0433,-0.15244 0.0652,-0.22848 3.0335,-10.25748 12.24157,-17.46007 22.92769,-17.93417 z"
+      id="rect824"/>
+</svg>
+
+    </a>
+
+
+<a href="https://allenz-me.github.io/RoSite/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+  
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+      2017 -
+    2022
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        运筹OR帷幄
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/RoSite/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/RoSite/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/RoSite/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/RoSite/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/RoSite/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/RoSite/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+<script>
+  if (typeof MathJax === 'undefined') {
+      window.MathJax = {
+          loader: {
+              load: ['[tex]/mhchem']
+          },
+          
+          tex: {
+              inlineMath: {'[+]': [['$', '$']]},
+              tags: 'ams',
+              packages: {'[+]': ['mhchem']}
+          }
+      };
+      (function() {
+          var script = document.createElement('script');
+          script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js';
+          script.defer = true;
+          document.head.appendChild(script);
+      })();
+  } else {
+      MathJax.texReset();
+      MathJax.typeset();
+  }
+</script>
+
+</body>
+</html>
