@@ -373,11 +373,11 @@ $$
 另一个著名的凸风险度量是shortfall risk measure（）。由于Föllmer and Schied,
 2002篇幅所限不在此展开。有关于风险度量系统的知识，感兴趣的读者可以参阅Artzner et al. (1999) 和Föllmer and Schied (2002)。&lt;/p&gt;
 &lt;h2 id=&#34;参考文献&#34;&gt;参考文献&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;Artzner, Philippe, Freddy Delbaen, Jean-Marc Eber, and David Heath&lt;/strong&gt;, “Coherent measures of risk,” Mathematical Finance, 1999, 9 (3), 203–228.
-&lt;strong&gt;Ben-Tal, Aharon and Marc Teboulle&lt;/strong&gt;, “An old-new concept of convex risk measures: the optimized certainty equivalent,” Mathematical Finance, 2007, 17 (3), 449–476.
-B&lt;strong&gt;ertsimas, Dimitris and John N Tsitsiklis&lt;/strong&gt;, Introduction to Linear Optimization, Athena Scientific Belmont, MA, 1997.
-&lt;strong&gt;Boyd, Stephen and Lieven Vandenberghe&lt;/strong&gt;, Convex Optimization, Cambridge university press, 2004.
-&lt;strong&gt;Föllmer, Hans and Alexander Schied&lt;/strong&gt;, “Convex measures of risk and trading constraints,” Finance and Stochastics, 2002, 6 (4), 429–447.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Artzner, Philippe, Freddy Delbaen, Jean-Marc Eber, and David Heath&lt;/strong&gt;, “Coherent measures of risk,” Mathematical Finance, 1999, 9 (3), 203–228.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ben-Tal, Aharon and Marc Teboulle&lt;/strong&gt;, “An old-new concept of convex risk measures: the optimized certainty equivalent,” Mathematical Finance, 2007, 17 (3), 449–476.&lt;/p&gt;
+&lt;p&gt;B&lt;strong&gt;ertsimas, Dimitris and John N Tsitsiklis&lt;/strong&gt;, Introduction to Linear Optimization, Athena Scientific Belmont, MA, 1997.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Boyd, Stephen and Lieven Vandenberghe&lt;/strong&gt;, Convex Optimization, Cambridge university press, 2004.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Föllmer, Hans and Alexander Schied&lt;/strong&gt;, “Convex measures of risk and trading constraints,” Finance and Stochastics, 2002, 6 (4), 429–447.&lt;/p&gt;
 </description>
       
     </item>
