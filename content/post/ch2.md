@@ -317,9 +317,17 @@ $$
 ## 参考文献
 
 **Artzner, Philippe, Freddy Delbaen, Jean-Marc Eber, and David Heath**, “Coherent measures of risk,” Mathematical Finance, 1999, 9 (3), 203–228.
+
+
 **Ben-Tal, Aharon and Marc Teboulle**, “An old-new concept of convex risk measures: the optimized certainty equivalent,” Mathematical Finance, 2007, 17 (3), 449–476.
+
+
 B**ertsimas, Dimitris and John N Tsitsiklis**, Introduction to Linear Optimization, Athena Scientific Belmont, MA, 1997.
+
+
 **Boyd, Stephen and Lieven Vandenberghe**, Convex Optimization, Cambridge university press, 2004.
+
+
 **Föllmer, Hans and Alexander Schied**, “Convex measures of risk and trading constraints,” Finance and Stochastics, 2002, 6 (4), 429–447.
 
 
